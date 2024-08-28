@@ -1,0 +1,23 @@
+{
+    "title": "der_kuba",
+    "url": "https://derkuba.de/",
+    "language": "de",
+    "description": "IT Blog mit Tipps und Tricks aus dem Arbeitsalltag eines Software-Enwicklers",
+    "feed": {
+        "subtitle": "I am writing about my experiences",
+        "filename": "feed.xml",
+        "path": "/feed/feed.xml",
+        "id": "https://derkuba.de/"
+    },
+    "jsonfeed": {
+        "path": "/feed/feed.json",
+        "url": "https://derkuba.de/feed/feed.json"
+    },
+    "author": {
+        "name": "Jacob Pawlik",
+        "email": "jacob.pawlik@web.de",
+        "url": "https://derkuba/about-me/"
+    },
+    "audience": "Anfänger, Azubis, Experten, Fortgeschrittene, Kinder",
+    "robots": "index, follow"
+}

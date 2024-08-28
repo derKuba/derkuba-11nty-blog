@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>{{ title or metadata.title }}</title>
+        <meta name="description" content="{{ description or metadata.description }}">
+        <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
+        <link rel="alternate" href="{{ metadata.jsonfeed.path | url }}" type="application/json" title="{{ metadata.title }}">
+        <link rel="stylesheet" href="{{ '/assets/css/prism.css' | url }}">
+        <link rel="stylesheet" href="{{ '/assets/css/bulma.min.css' | url }}">
+        <link rel="stylesheet" href="{{ '/assets/css/custom.css' | url }}">
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const e = Array
+                    .prototype
+                    .slice
+                    .call(document.querySelectorAll(".navbar-burger"), 0);
+                e.length > 0 && e.forEach(e => {
+                    e.addEventListener("click", () => {
+                        const t = e.dataset.target,
+                            a = document.getElementById(t);
+                        e.classList.toggle("is-active"),
+                        a.classList.toggle("is-active")
+                    })
+                })
+            });
+        </script>
+    </head>
+    <body>
+        {% include './components/navigation.njk' %}
+        {{ content | safe }}
+        <!-- Current page: {{ page.url | htmlBaseUrl }} -->
+    </body>
+</html>

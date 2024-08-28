@@ -1,0 +1,51 @@
+{
+    "name": "derkuba-11nty-blog",
+    "version": "2.0.0",
+    "description": "Ein Blog, der sich mit Themen rund um Webentwicklung, Android, Flutter und agiles Arbeiten beschäftigt. Die Seite bietet tiefgehende Einblicke, Tutorials und Best Practices für Entwickler, die in diesen Bereichen tätig sind oder sich weiterentwickeln möchten. Entwickelt, um sowohl Anfängern als auch erfahrenen Entwicklern wertvolle Ressourcen und praktische Tipps zur Verfügung zu stellen.",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "build": "npx @11ty/eleventy",
+        "dev": "npx @11ty/eleventy --serve"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/derKuba/derkuba-11nty-blog.git"
+    },
+    "keywords": [
+        "web development",
+        "Android",
+        "Flutter",
+        "agile practices",
+        "developer blog",
+        "programming",
+        "software development",
+        "best practices",
+        "tutorials",
+        "DevOps",
+        "mobile development",
+        "JavaScript",
+        "Kotlin",
+        "Scrum",
+        "agile methodologies",
+        "frontend",
+        "backend",
+        "app development",
+        "Dart"
+    ],
+    "author": "Jacob Pawlik",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/derKuba/derkuba-11nty-blog/issues"
+    },
+    "homepage": "https://github.com/derKuba/derkuba-11nty-blog#readme",
+    "dependencies": {
+        "@11ty/eleventy": "3.0.0-alpha.16",
+        "@11ty/eleventy-navigation": "^0.3.5",
+        "@11ty/eleventy-plugin-rss": "^2.0.2",
+        "prettier": "^3.3.3"
+    },
+    "devDependencies": {
+        "@11ty/eleventy-img": "^4.0.2"
+    }
+}

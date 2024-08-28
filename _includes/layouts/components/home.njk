@@ -1,0 +1,104 @@
+---
+layout: layouts/base.njk
+eleventyNavigation:
+  key: Home
+  order: 1
+---
+
+{% set maxPosts = collections.posts.length | min(10) %}
+{% set postslist = collections.posts | head(-10) %}
+{% set postslistCounter = collections.posts | length %}
+<section class="section" {% if templateClass %} class="{{ templateClass }}" {% endif %}>
+  <div class="container">
+    <div class="columns is-half-desktop">
+      <div class="column is-9">
+        {% include "./postslist.njk" %}
+        {{ content | safe }}
+        <a href="/posts">weitere Posts befinden sich unter Archive</a>
+      </div>
+      <div class="column is-3">
+        <div class="panel">
+          <p class="panel-heading">
+            Kategorien
+          </p>
+          <div class="panel-block ">
+            <div class="content categorie-item">
+              {% for tag in collections.tagList | sort | filterTagList %}
+                {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+                <a href="{{ tagUrl | url }}">
+                  <span class="tag {% badge loop.index-1 %}{{ index }}{% endbadge %}">{{ tag | title }}</span>
+                </a>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <!-- panel -->
+        <div class="panel is-info">
+          <p class="panel-heading">
+            Favoriten
+          </p>
+          <div class="panel-block ">
+            <div class="content categorie-item">
+              <span class="tag is-success">Frontend</span>
+              <span class="tag is-info">Backend</span>
+              <span class="tag is-danger">Fullstack</span>
+            </div>
+          </div>
+          <div class="panel-block ">
+            <div class="content favorites-list">
+              <a href="https://www.typescriptlang.org/">
+                <span class="tag is-danger">Typescript</span>
+              </a>
+              <a href="https://developer.mozilla.org/de/docs/Web/JavaScript">
+                <span class="tag is-success">Javascript</span>
+              </a>
+              <a href="https://nodejs.org/">
+                <span class="tag is-info">Node.js</span>
+              </a>
+              <a href="https://nodesource.com/blog/Express-Koa-Hapi">
+                <span class="tag is-info">Express || KOA</span>
+              </a>
+              <a href="https://jestjs.io/">
+                <span class="tag is-success">JEST</span>
+              </a>
+              <a href="https://kubernetes.io/de/">
+                <span class="tag is-danger">Kubernetes</span>
+              </a>
+              <a href="https://stenciljs.com/">
+                <span class="tag is-success">Stencil.js</span>
+              </a>
+              <a href="https://www.postgresql.org/">
+                <span class="tag is-danger">PostgreSQL</span>
+              </a>
+              <a href="https://github.com/visionmedia/supertest#readme">
+                <span class="tag is-info">Supertest</span>
+              </a>
+              <a href="https://flutter.dev/">
+                <span class="tag is-danger">Flutter</span>
+              </a>
+              <a href="https://sass-lang.com/">
+                <span class="tag is-success">SCSS</span>
+              </a>
+              <a href="https://dart.dev/">
+                <span class="tag is-danger">Dart</span>
+              </a>
+              <a href="https://www.sqlite.org/index.html">
+                <span class="tag is-success">SQLite</span>
+              </a>
+              <a href="https://www.webcomponents.org/">
+                <span class="tag is-success">Webcomponents</span>
+              </a>
+              <a href="https://www.docker.com/">
+                <span class="tag is-danger">Docker</span>
+              </a>
+              <a href="https://github.com/microsoft/playwright">
+                <span class="tag is-danger">Playwright</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- panel -->
+      </div>
+    </div>
+  </div>
+</section>

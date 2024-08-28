@@ -1,0 +1,38 @@
+
+<ul reversed class="postlist">
+{% for post in postslist | reverse %}
+
+  <li class="post-list__item{% if post.url == url %} post-list__item--active{% endif %}">
+    <h2 class="title is-4">
+      <a href="{{ post.url | url }}">
+        {% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}
+      </a>
+    </h2>
+    <h3 class="subtitle is-7">
+      <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+    </h3>
+
+    <div class="control ">
+      <div class="tags has-addons is-justify-content-flex-end">
+        <span class="tag is-dark"> {{ post.templateContent | striptags | wordcount | readingTime }}</span>
+        <span class="tag is-success">{{ post.templateContent | striptags | wordcount }} Wörter</span>
+      </div>
+    </div>
+
+    <div class="tag-list">
+    {% for tag in post.data.tags | filterTagList %}
+      {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
+      <span class="tag {% badge loop.index-1 %}{{index}}{% endbadge %}">
+        <a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>
+      </span>
+    {% endfor %}
+    </div>
+
+    {% excerpt post %}
+
+    <hr/>
+  </li>
+{% endfor %}
+</ul>
+
+ 

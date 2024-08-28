@@ -1,0 +1,33 @@
+---
+layout: layouts/base.njk
+---
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <h1 class="title is-3">{{ title }}</h1>
+        <div class="post-detail__tags">
+          <h3 class="subtitle is-6">
+            <time datetime="{{ page.date | htmlDateString }}">
+              {{ page.date | readableDate }}
+            </time>
+          </h3>
+          <div class="tags">
+            {%- for tag in tags | filterTagList -%}
+              {%- set tagUrl %}/tags/{{ tag | slug }}/{% endset -%}
+              <a href="{{ tagUrl | url }}" class="post-tag">
+                <span class="tag {% badge loop.index-1 %}{{ index }}{% endbadge %}">
+                  {{ tag | title }}
+                </span>
+              </a>
+            {%- endfor %}
+          </div>
+        </div>
+        <div class="content post_detail__content">
+          {{ content | safe }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
