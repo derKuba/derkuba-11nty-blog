@@ -84,7 +84,7 @@ npm run storybook
 
 Ruft man die URL im Browser auf sieht man dies:
 
-![Storybook Start](/content/img/1021/storybook.png "Storybook")<div class="has-text-right image-subline">Bild 1: Aufruf http://localhost:6006</div>
+![Storybook Start](/img/1021/storybook.png "Storybook")<div class="has-text-right image-subline">Bild 1: Aufruf http://localhost:6006</div>
 
 Man bekommt diese Oberfläche geschenkt. Sie ist übersichtlich aufgebaut. Im linken Bereich sieht man die angelegten Komponenten. Button, Header und Page kommen aus dem Storybook-Starter. Es befindet sich eine Suche oben links, die die bestehenden Komponenten filtert. Rechts sieht man dann die Komponenten. Unter Canvas ist die gerenderte Komponente. Unter Docs kann man zusätzliche Informationen sehen, die man selber anlegen kann. Die restlichen Icons dienen der Veränderung der Darstellung. Bitte einmal alles an- und durchklickern.
 

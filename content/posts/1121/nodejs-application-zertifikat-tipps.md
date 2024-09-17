@@ -234,7 +234,7 @@ Ich war im ersten Anlauf schlecht vorbereitet, weil ich nicht wusste was mich er
 
 Wenn man bestanden hat bekommt man eine PDF mit folgendem Inhalt:
 
-![Dateiauswahl](/content/img/1121/zert.png "Dateiauswahl")<div class="has-text-right image-subline">Bild 1: Mein Zertifikat</div>
+![Dateiauswahl](/img/1121/zert.png "Dateiauswahl")<div class="has-text-right image-subline">Bild 1: Mein Zertifikat</div>
 
 Dort ist eine Nummer aufgeführt, die man in einen [Service der Linux-Foundation](https://training.linuxfoundation.org/certification/verify/) eingeben kann und bestätigt bekommt, dass es noch gültig ist:
 

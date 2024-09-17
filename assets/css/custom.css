@@ -139,6 +139,12 @@ code .highlight-line:before {
     list-style: none;
 }
 
-td, th {
+td,
+th {
     text-align: justify !important;
+}
+
+.language-hint {
+    text-align: right;
+    padding-bottom: 15px;
 }

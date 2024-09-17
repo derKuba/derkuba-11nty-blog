@@ -47,7 +47,7 @@ RadioListTile<String>(
 
 Das Ganze sieht dann aus wie folgt:
 
-![Dateiauswahl](/content/img/0521/import_ui.png "Dateiauswahl")<div class="has-text-right image-subline">Bild 1: RadioListTile in Aktion</div>
+![Dateiauswahl](/img/0521/import_ui.png "Dateiauswahl")<div class="has-text-right image-subline">Bild 1: RadioListTile in Aktion</div>
 
 Der grüne Knopf im unteren Bereich heißt **_FloatingActionButton_** und hat auf seiner onPressed-Methode folgende Funktion:
 

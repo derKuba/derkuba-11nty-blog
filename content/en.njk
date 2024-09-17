@@ -1,0 +1,11 @@
+---
+layout: layouts/components/home.njk
+permalink: /en/
+eleventyNavigation:
+  key: english
+  order: 3
+  title: English
+---
+
+{% set postslist = collections.englishPosts %}
+{% include "layouts/components/postslist.njk" %}

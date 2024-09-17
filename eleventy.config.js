@@ -1,6 +1,7 @@
 import pluginRss from "@11ty/eleventy-plugin-rss";
 import { EleventyHtmlBasePlugin } from "@11ty/eleventy";
 import pluginNavigation from "@11ty/eleventy-navigation";
+import pluginSyntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 
 import { DateTime } from "luxon";
 
@@ -17,6 +18,9 @@ const extractExcerpt = (post) => {
 export default async function (eleventyConfig) {
     eleventyConfig.addPlugin(pluginRss);
     eleventyConfig.addPlugin(pluginNavigation);
+    eleventyConfig.addPlugin(pluginSyntaxHighlight, {
+        alwaysWrapLineHighlights: true,
+    });
     eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
 
     eleventyConfig.addPassthroughCopy("assets/css/*.css");
@@ -96,6 +100,22 @@ export default async function (eleventyConfig) {
         });
 
         return [...tagSet];
+    });
+
+    eleventyConfig.addCollection(
+        "allPostsExceptEnglish",
+        function (collectionApi) {
+            return collectionApi
+                .getFilteredByGlob("content/posts/**/*.md")
+                .filter(function (item) {
+                    // Filtere die Posts, die im Ordner 'posts/en/' sind
+                    return !item.inputPath.includes("content/posts/en/");
+                });
+        },
+    );
+
+    eleventyConfig.addCollection("englishPosts", function (collectionApi) {
+        return collectionApi.getFilteredByGlob("content/posts/en/**/*.md");
     });
 
     return {

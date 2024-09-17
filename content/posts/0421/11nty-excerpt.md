@@ -1,74 +1,83 @@
 ---
-title: 11nty Inhalt anzeigen in der Liste
-description: Wie zeigen ich den ersten Satz in der Postliste an
+title: "11ty: Inhalt in der Post-Liste anzeigen"
+description: Wie zeige ich den ersten Satz in der Post-Liste an
 date: 2021-04-04
-tags: ["11nty", "excerpt"]
+tags: ["11ty", "excerpt"]
 layout: layouts/post.njk
+lang: "de"
+alternate_lang: "en"
+alternate_url: "/posts/en/0421/11nty-excerpt"
 ---
 
-Wer in der Liste aller Posts zusätzlich den Inhalt anzeigen möchte, hat out-of-the-box nur die Möglichkeit den gesamten Inhalt anzuzeigen. Wenn man z.B. nur den ersten Satz eines Posts anzeigen möchte, muss dies dem Javascript von Eleventy noch beibringen. <!-- endOfPreview -->
+Wer in der Liste aller Posts zusätzlich den Inhalt anzeigen möchte, hat standardmäßig nur die Möglichkeit, den gesamten Inhalt anzuzeigen. Wenn man jedoch beispielsweise nur den ersten Satz eines Posts anzeigen möchte, muss dies noch über Eleventys JavaScript gelöst werden. <!-- endOfPreview -->
 
-Als Grundlage wird der [11nty-Starter-Blog](https://github.com/11ty/eleventy-base-blog) verwendet.
+Als Grundlage wird der [11ty Starter Blog](https://github.com/11ty/eleventy-base-blog) verwendet.
 
-Wenn man diesen startet, erhält man folgendes Bild. Es zeigt die Post-Liste mit Titel, Datum und Tags, aber ohne Auszug des Inhalts.
-![11nty starter](/content/img/0421/excerpt-place.png "11nty starter")
-<div class="has-text-right image-subline">Bild 1: Post-Liste im Starter Template</div>
+Wenn man diesen startet, erhält man folgendes Bild. Es zeigt die Post-Liste mit Titel, Datum und Tags, aber ohne Inhaltsauszug.
+![11ty starter](/img/0421/excerpt-place.png "11ty starter")
 
-Die rote Schrift zeigt den Ort an, an dem der Inhalt eingefügt werden soll.
-Für die Umsetzung habe ich mich an folgenden Seiten orientiert:
+<div class="has-text-right image-subline">Bild 1: Post-Liste im Starter-Template</div>
 
-https://github.com/muenzpraeger/eleventy-chirpy-blog-template und
-https://keepinguptodate.com/pages/2019/06/creating-blog-with-eleventy/ .
+Die rote Schrift zeigt den Bereich, in den der Inhalt eingefügt werden soll.
+Für die Umsetzung habe ich mich an den folgenden Seiten orientiert:
+
+[Eleventy Chirpy Blog Template](https://github.com/muenzpraeger/eleventy-chirpy-blog-template) und [Blog mit Eleventy erstellen](https://keepinguptodate.com/pages/2019/06/creating-blog-with-eleventy/).
 
 Die Datei **.eleventy.js** benötigt folgende Funktion:
 
 ```javascript
 const extractExcerpt = (post) => {
-  if (!Object.prototype.hasOwnProperty.call(post, "templateContent")) {
-      return null;
-  }
-  const content = post.templateContent;
-  const markerIndex = content.indexOf("<!-- endOfPreview -->");
-  
-  return markerIndex > 0 ? content.slice(0, markerIndex) + "..." : "";
+    if (!Object.prototype.hasOwnProperty.call(post, "templateContent")) {
+        return null;
+    }
+    const content = post.templateContent;
+    const markerIndex = content.indexOf("<!-- endOfPreview -->");
+
+    return markerIndex > 0 ? content.slice(0, markerIndex) + "..." : "";
 };
 ```
 
-Zunächst wird geprüft ob das Post-Object das Feld "templateContent" besitzt. Dies sollte von Eleventy bereitgestellt werden. Anschließend wird es in der Content-Variable gecached. Der Inhalt wird zerschnitten vom Anfang bis zum Schnippsel **"<!-- endOfPreview -->"**. Hier kann natürlich jedes beliebiges, aber möglichst vom Inhalt abhebendes Tag verwendet werden. Das ist ein Marker, der das Ende der Auszuges, bzw. der Vorschau, beschreibt. Wenn kein Marker gefunden wird, wird ein leerer String zurückgegeben.
+Zunächst wird geprüft, ob das Post-Objekt das Feld "templateContent" besitzt, das von Eleventy bereitgestellt werden sollte. Anschließend wird der Inhalt in der `content`-Variablen gespeichert. Der Inhalt wird von Anfang an bis zum Schnipsel **"<!-- endOfPreview -->"** zerschnitten. Natürlich kann hier jedes beliebige, aber möglichst einzigartige Tag verwendet werden. Dieser Marker beschreibt das Ende des Auszugs bzw. der Vorschau. Wenn kein Marker gefunden wird, wird ein leerer String zurückgegeben.
 
-Nun muss Eleventy beigebracht werden, diese Funktion zu werden. Es wäre z.B. als Filter möglich, aber ein "Shortcut" erscheint für mich praktischer. Ein Shortcut sieht aus wie folgt:
+Nun muss Eleventy beigebracht werden, diese Funktion zu verwenden. Es wäre zum Beispiel als Filter möglich, aber ich finde einen "Shortcut" praktischer. Ein Shortcut sieht folgendermaßen aus:
 
 ```javascript
-// remove whitespace between {} and %
+// entferne Leerzeichen zwischen {} und %
 { % excerpt pageObject % }
 ```
-<em>Bitte die Leerzeichen entfernen zwischen den runden Klammern und dem Prozentzeichen. Leider rendert 11nty den Ausschnitt ohne Leerzeichen!</em>
+
+<em>Bitte die Leerzeichen zwischen den runden Klammern und dem Prozentzeichen entfernen. Leider rendert 11ty den Ausschnitt ohne Leerzeichen!</em>
 
 ```javascript
-eleventyConfig.addShortcode("excerpt", (post) =>
-    extractExcerpt(post)
-);
+eleventyConfig.addShortcode("excerpt", (post) => extractExcerpt(post));
 ```
-Das Eleventy-Config-Object nun ein neues Schlagwort "excerpt" (Auszug) und übergibt als Parameter wie im vorherigen Code-Snippet angezeigt das Postobjekt.
 
-Wenn man diesen Shortcut nun in der Datei */_include/postlist.njk* innerhalb der Listen-Tags (< li > </ li >) einfügt, erhält man seinen gewünschten Inhaltsauszug.
+Das Eleventy-Konfigurationsobjekt erhält nun ein neues Schlagwort "excerpt" (Auszug) und übergibt, wie im vorherigen Code-Snippet gezeigt, das Post-Objekt als Parameter.
+
+Wenn man diesen Shortcut nun in der Datei _/\_includes/postlist.njk_ innerhalb der Listenelemente (< li > </ li >) einfügt, erhält man den gewünschten Inhaltsauszug:
 
 ```javascript
- { % excerpt post % }
+{ % excerpt post % }
 ```
 
-Dieser Marker kann jetzt in den Markdown-Dateien der Blogposts verwendet werden(**/posts/*.md**). Einfach nach gewünschter Länge des Auszuges das **< !-- endOfPreview -- >** einfügen.
+Dieser Marker kann nun in den Markdown-Dateien der Blogposts verwendet werden (**/posts/\*.md**). Einfach nach der gewünschten Länge des Auszugs das **<!-- endOfPreview -->** einfügen.
 
 ```html
-Leverage agile frameworks to provide a robust <!-- endOfPreview -->
-synopsis for high level overviews. Iterative 
+Leverage agile frameworks to provide a robust
+<!-- endOfPreview -->
+synopsis for high-level overviews. Iterative
 ```
 
-![11nty starter](/content/img/0421/excerpt-final.png "11nty starter")
-![11nty starter](/content/img/0421/excerpt-place.png "11nty starter")
-<div class="has-text-right image-subline">Bild 2: Post-Liste mit Inhaltvorschau</div>
+![11ty starter](/img/0421/excerpt-final.png "11ty starter")
+![11ty starter](/img/0421/excerpt-place.png "11ty starter")
 
-\
+<div class="has-text-right image-subline">Bild 2: Post-Liste mit Inhaltsvorschau</div>
+
 Die Codebeispiele findet ihr auf [Github/derKuba](https://github.com/derKuba/eleventy-examples).
 
- Ihr habt Fragen oder Anregungen? Schreibt mir bei [Twitter](https://twitter.com/der_kuba)
+Habt ihr Fragen oder Anregungen? Schreibt mir bei [Twitter](https://twitter.com/der_kuba).
+
+\
+Tausend Dank fürs Lesen!
+
+Kuba

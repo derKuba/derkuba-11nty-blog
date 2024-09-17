@@ -61,7 +61,8 @@ Ein einfaches und klassisches HTML Layout ist schnell aufgesetzt. Um Zeit zu Spa
 -   Sidebar
 -   [Footer](https://bulma.io/documentation/layout/footer/)
 
-![html layout](/content/img/layout.png "HTML Template")
+![html layout](/img/layout.png "HTML Template")
+
 <div class="has-text-right image-subline">Bild 1: Aufteilung Layout</div>
 
 \
@@ -97,8 +98,9 @@ npx eleventy --serve
 
 und man sollte folgendes sehen:
 
-![11nty starter](/content/img/0421/11nty-starter.png "11nty starter")
-<div class="has-text-right image-subline">Bild 2: Ausschnitte Starter Template</div> 
+![11nty starter](/img/0421/11nty-starter.png "11nty starter")
+
+<div class="has-text-right image-subline">Bild 2: Ausschnitte Starter Template</div>
 
 \
 Man erkennt auf den ersten Blick, die dynamischen Elemente, die wir in unserem eigenen Template benötigen.
@@ -107,14 +109,15 @@ Man erkennt auf den ersten Blick, die dynamischen Elemente, die wir in unserem e
 -   Content: Posts
 -   Sidebar: die Tags
 
-![11nty starter elements](/content/img/0421/starter-elements.png "11nty starter elements")
+![11nty starter elements](/img/0421/starter-elements.png "11nty starter elements")
 
 \
 **Aufbau und Dateistruktur**
 Für etwas mehr Übersicht habe ich einige Dateien in Ordner aufgeteilt. CSS und JS habe ich in das Verzeichnis Template gezogen, Inhaltsspezifische Dateien in den Ordner "Content" und CI-spezifische Dateien habe ich gelöscht.
 
-![Verzeichnisstruktur](/content/img/0421/file-structure.png "verzeichnisstruktur")
-<div class="has-text-right image-subline">Bild 3: Verzeichnisstruktur</div> 
+![Verzeichnisstruktur](/img/0421/file-structure.png "verzeichnisstruktur")
+
+<div class="has-text-right image-subline">Bild 3: Verzeichnisstruktur</div>
 
 \
 Die Dateien untergliedern sich in
@@ -136,63 +139,67 @@ Navigation:
     in unsere nav-container.
 
 vorher:
-![navigation](/content/img/0421/starter-header.png "Navigation")<div class="has-text-right image-subline">Bild 4: Code Starter-Header</div> (leider rendert an dieser Stelle 11nty den nunjuk-code und ich muss ein Bild verwenden. Vielleicht kennt jemand einen workaround?)
+![navigation](/img/0421/starter-header.png "Navigation")<div class="has-text-right image-subline">Bild 4: Code Starter-Header</div> (leider rendert an dieser Stelle 11nty den nunjuk-code und ich muss ein Bild verwenden. Vielleicht kennt jemand einen workaround?)
 
 nachher:
-![header](/content/img/0421/bulma-header.png "Header")
+![header](/img/0421/bulma-header.png "Header")
+
 <div class="has-text-right image-subline">Bild 5: Bulma Header</div>
 Wir überführen die For-Schleife in den navigation-items container.
 Anschließend
 
--   in der "base.njk"-datei löschen wir nun den Inhalt wie er auf dem vorher-Bild zu sehen ist und ersetzen in durch <div class="clear-image">![Include Header](/content/img/0421/include-header.png "Include Header")</div> und die Datei sollte wie folgt aussehen:
-![Base Datei](/content/img/0421/base.png "Base-Datei")
+-   in der "base.njk"-datei löschen wir nun den Inhalt wie er auf dem vorher-Bild zu sehen ist und ersetzen in durch <div class="clear-image">![Include Header](/img/0421/include-header.png "Include Header")</div> und die Datei sollte wie folgt aussehen:
+![Base Datei](/img/0421/base.png "Base-Datei")
 <div class="has-text-right image-subline">Bild 6: Starter-Template Base</div>
 Neben den eigenen CSS-Dateien, dem Bulma-Burger-Menu-Javascript, sieht man die Navigation und den Footer.
 
 \
 **Content:**
 
-Der Content-Bereich unterscheidet sich jetzt je nachdem auf welcher Seite man sich befindet. Ich möchte, dass auf der Hauptseite die Sidebar sichtbar ist und auf den Post-Detailseiten nicht. Daher werden jetzt die vorgefertigten Dateien **/_includes/layouts/** <em>-home.njk</em> und <em>-postlist.njk</em> für die Hauptseite relevant und die<em>post.njk</em> Datei für die Detailseite.
+Der Content-Bereich unterscheidet sich jetzt je nachdem auf welcher Seite man sich befindet. Ich möchte, dass auf der Hauptseite die Sidebar sichtbar ist und auf den Post-Detailseiten nicht. Daher werden jetzt die vorgefertigten Dateien **/\_includes/layouts/** <em>-home.njk</em> und <em>-postlist.njk</em> für die Hauptseite relevant und die<em>post.njk</em> Datei für die Detailseite.
 
 Für Content-Bereich wurde der Starter-Template Code mit dem eigenen Template verbunden:
 
-![content](/content/img/0421/content-area.png "Content Bereicht")
+![content](/img/0421/content-area.png "Content Bereicht")
+
 <div class="has-text-right image-subline">Bild 7:Content Bereich</div>
 
 Neben dem kopierten Standardcode entdeckt der findige Leser auch den Bereich in Zeile 19. Dort mappe ich anhand des Indexes die Bulma Tag Klassen an den Tag, um so ein wenig Farbe in den Seitenbereich zu bekommen. Dafür habe ich einen weiteren Short-Code angelegt in der <em>.eleventy.js-</em>Datei angelegt:
 
 ```javascript
-    eleventyConfig.addPairedShortcode("badge", function (_, index) {
-        const badge = [
-            "is-black",
-            "is-primary",
-            "is-link",
-            "is-success",
-            "is-dark",
-            "is-warning",
-            "is-danger",
-        ];
-        if (index < badge.length) {
-            return badge[index];
-        }
+eleventyConfig.addPairedShortcode("badge", function (_, index) {
+    const badge = [
+        "is-black",
+        "is-primary",
+        "is-link",
+        "is-success",
+        "is-dark",
+        "is-warning",
+        "is-danger",
+    ];
+    if (index < badge.length) {
+        return badge[index];
+    }
 
-        const color = index % badge.length;
+    const color = index % badge.length;
 
-        return badge[color];
-    });
+    return badge[color];
+});
 ```
 
 Für den Detail-Bereich wurde der Starter-Template Code mit dem eigenen Template verbunden:
 
-![post detail](/content/img/0421/post-detail.png "Post Detail Seite")
+![post detail](/img/0421/post-detail.png "Post Detail Seite")
+
 <div class="has-text-right image-subline">Bild 8: Detail Seite</div>
 
 Für die List der Posts wurde der Starter-Template Code mit dem eigenen Template verbunden:
 
-![Post-List](/content/img/0421/postlist.png "Liste aller Posts")
+![Post-List](/img/0421/postlist.png "Liste aller Posts")
+
 <div class="has-text-right image-subline">Bild 9: Detailseite Posts</div>
 
-Auch hier verwende ich noch einen weitern Custom-Filter "readingTime", den ich aus dem weiteren Starter-Template 
+Auch hier verwende ich noch einen weitern Custom-Filter "readingTime", den ich aus dem weiteren Starter-Template
 https://github.com/muenzpraeger/eleventy-chirpy-blog-template/blob/main/.eleventy.js entnommen habe, um die Lesedauer anzuzeigen.
 
 Damit niemand den Code abtippen muss, habe ich die relevanten Dateien auf [Github/derKuba](https://github.com/derKuba/eleventy-examples) abgelegt.

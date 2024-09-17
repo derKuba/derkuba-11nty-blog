@@ -140,7 +140,7 @@ module.exports = {
 Dies erzeugt unter dist/components/ eine _bundle.js_. Diese Datei müssen wir jetzt in ein HTML-Skeleton einbinden:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html dir="ltr" lang="en">
     <head>
         <meta charset="utf-8" />
@@ -165,7 +165,7 @@ python -m SimpleHTTPServer
 http://localhost:8000
 ```
 
-![component einstieg](/content/img/1021/index_component.png "component einstieg")<div class="has-text-right image-subline">Bild 1: Einzelne Komponente</div>
+![component einstieg](/img/1021/index_component.png "component einstieg")<div class="has-text-right image-subline">Bild 1: Einzelne Komponente</div>
 
 **dist-custom-elements-bundle**
 Nach dem build-Befehl entsteht ein Ordner unter /dist/custom-elements mit jeweils einer _index.ts_-Datei und der dazugehörigen _index.d.ts_-Datei. Diesmal sind alle gebauten Komponenten in der Datei gepackt. Aber auch hier bitte ich um Vorsicht. Es ist für Frameworks, bzw. für das moderne JS optimiert und läuft nicht out-of-the-box im Browser. Wir müssen auch hier erst einmal mit Hilfe von Webpack ein browserfähiges Bundle bauen.
@@ -223,7 +223,7 @@ Wenn wir diesen Befehl ausführen erhalten wir unter /dist/custom-elements eine 
 
 Analog zu dem vorherigen Beispiel sieht man in Zeile 7 die Einbindung und ab Zeile 11 die Verwendung der "neuen" HTML-Tags.
 
-![Custom Elements Bundle](/content/img/1021/custom-element-index.png "Custom Elements Bundle")<div class="has-text-right image-subline">Bild 2: Custom Elements Bundle</div>
+![Custom Elements Bundle](/img/1021/custom-element-index.png "Custom Elements Bundle")<div class="has-text-right image-subline">Bild 2: Custom Elements Bundle</div>
 
 \
 **www build**

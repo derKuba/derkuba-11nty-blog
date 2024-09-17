@@ -1,0 +1,11 @@
+---
+layout: layouts/components/home.njk
+permalink: /posts/
+eleventyNavigation:
+  key: Archive
+  order: 2
+  title: Archiv
+---
+
+{% set postslist = collections.allPostsExceptEnglish %}
+{% include "layouts/components/postslist.njk" %}

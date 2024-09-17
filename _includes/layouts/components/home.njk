@@ -5,14 +5,10 @@ eleventyNavigation:
   order: 1
 ---
 
-{% set maxPosts = collections.posts.length | min(10) %}
-{% set postslist = collections.posts | head(-10) %}
-{% set postslistCounter = collections.posts | length %}
 <section class="section" {% if templateClass %} class="{{ templateClass }}" {% endif %}>
   <div class="container">
     <div class="columns is-half-desktop">
       <div class="column is-9">
-        {% include "./postslist.njk" %}
         {{ content | safe }}
         <a href="/posts">weitere Posts befinden sich unter Archive</a>
       </div>

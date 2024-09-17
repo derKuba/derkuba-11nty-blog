@@ -25,9 +25,33 @@ layout: layouts/base.njk
           </div>
         </div>
         <div class="content post_detail__content">
+          <div class="language-hint">
+            {% if lang == "de" %}
+              <a href="{{ alternate_url }}">Read in English</a>
+            {% elseif lang == "en" %}
+              <a href="{{ alternate_url }}">Auf Deutsch lesen</a>
+            {% endif %}
+          </div>
           {{ content | safe }}
+          {%- set nextPost = collections.posts | getNextCollectionItem(page) %}
+          {%- set previousPost = collections.posts | getPreviousCollectionItem(page) %}
+          {%- if nextPost or previousPost %}
+            <hr>
+              <ul class="post-navigation">
+                {%- if nextPost %}
+                  <li>Nächster Artikel:
+                    <a href="{{ nextPost.url | url }}">{{ nextPost.data.title }}</a>
+                  </li>
+                {% endif %}
+                {%- if previousPost %}
+                  <li>Vorheriger Artikel:
+                    <a href="{{ previousPost.url | url }}">{{ previousPost.data.title }}</a>
+                  </li>
+                {% endif %}
+              </ul>
+            {%- endif %}
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>

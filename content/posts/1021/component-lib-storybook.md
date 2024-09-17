@@ -17,7 +17,7 @@ Ich stelle euch jetzt vor:
 
 #### Wie ist Storybook aufgebaut?
 
-![Storybook aufbau](/content/img/1021/storybook-overview.png "Aufbau Storybook")
+![Storybook aufbau](/img/1021/storybook-overview.png "Aufbau Storybook")
 
 <div class="has-text-right image-subline">Bild 1: Aufbau Storybook</div>
 
@@ -30,7 +30,7 @@ Die Seitenleiste enthält eine **_Suche_**, die alle bestehenden Komponenten dur
 **Rot - oberer Bereich**
 Die obere Leiste enthält die **_Navigation_** zur Malfläche, in denen die Komponente gerendert wird oder zur Dokumentationsansicht, in der man weitere Informationen zur Komponente hinterlegen kann. Die übrigen Icons enthalten **_Werkzeuge zur Darstellung_**.
 
-![Storybook Tools](/content/img/1021/storybook-tools.gif "Storybook Tools")
+![Storybook Tools](/img/1021/storybook-tools.gif "Storybook Tools")
 
 Sie beinhalten von links nach rechts folgende Funktionen:
 
@@ -61,7 +61,7 @@ Insgesamt muss man sagen, dass es sehr übersichtlich gestaltet ist.
 
 Klickt man in dem rot markierten Bereich auf den Knopf **_Docs_** kommt man in die Beschreibung der Komponente:
 
-![Storybook Docs](/content/img/1021/storybook-docs.png "Storybook Docs")
+![Storybook Docs](/img/1021/storybook-docs.png "Storybook Docs")
 
 <div class="has-text-right image-subline">Bild 3: Dokumenationsansicht</div>
 
@@ -129,7 +129,7 @@ Der Code erklärt sich selbst. Wer weitere Input-Felder für Select-Listen, Chec
 
 Die Control-Ansicht in Aktion sieht so aus:
 
-![Storybook Controls](/content/img/1021/storybook-controls.gif "Storybook Controls")
+![Storybook Controls](/img/1021/storybook-controls.gif "Storybook Controls")
 
 <div class="has-text-right image-subline">Bild 3*: Animation Eingabe</div>
 
@@ -205,7 +205,7 @@ module.exports = {
 
 Das war auch schon alles. Wenn man alles richtig eingestellt hat, erhält man folgendes Bild:
 
-![Storybook Story Addon](/content/img/1021/storybook-story-addon.png "Storybook Story Addon")
+![Storybook Story Addon](/img/1021/storybook-story-addon.png "Storybook Story Addon")
 
 <div class="has-text-right image-subline">Bild 4: Richtig installiert</div>
 

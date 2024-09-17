@@ -57,7 +57,7 @@ if (status.isDenied) {
 
 Die erste Zeile fragt das System an, ob überhaupt Rechte in der oben beschriebenen xml eingetragen wurden und dann das Telefon, ob der Telefonnutzer die Rechte freigegeben hat. Die dritte Zeile lässt einen Dialog erscheinen, der dem Nutzer diese Auwahl anbietet.
 
-![schreibrechte](/content/img/0521/right-granted.png "schreibrechte")
+![schreibrechte](/img/0521/right-granted.png "schreibrechte")
 
 Wurden diese Rechte erlaubt, können wir die Dateien schreiben.
 
@@ -85,7 +85,7 @@ String tempPath = tempDir.path;
 **Ausflug in dein Android-Datenbankverzeichnis**
 Wer in seine bestehende und laufende Applikation reinschauen möchte, dem empfehle ich im Android-Studio den **_Device-File-Explorer_**.
 
-![device file explorer](/content/img/0521/file-explorer.png "device file explorer")
+![device file explorer](/img/0521/file-explorer.png "device file explorer")
 
 Unter **_/data/data/[name eurer applikation]/databases/nameEurerDB.db_** findet ihr eure SQlite Datenbank und könnte diese exportieren.
 
