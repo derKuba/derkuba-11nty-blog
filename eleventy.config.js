@@ -74,6 +74,10 @@ export default async function (eleventyConfig) {
         );
     });
 
+    eleventyConfig.addFilter("filterNavigation", function (navigation) {
+        return navigation.filter((item) => !item.url.includes("/tags/"));
+    });
+
     // Get the first `n` elements of a collection.
     eleventyConfig.addFilter("head", (array, n) => {
         if (n < 0) {

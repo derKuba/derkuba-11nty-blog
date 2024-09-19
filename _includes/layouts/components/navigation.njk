@@ -22,7 +22,7 @@
             </div>
             <div id="navigation-items" class="navbar-menu">
                 <div class="navbar-end">
-                    {% for entry in collections.all | eleventyNavigation %}
+                    {% for entry in collections.all | eleventyNavigation | filterNavigation %}
                         <a class="navbar-item {% if entry.url == page.url %} nav-item-active{% endif %}" href="{{ entry.url | url }}">
                             {{ entry.title }}
                         </a>
