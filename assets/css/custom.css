@@ -1,3 +1,28 @@
+/* Hauptfarben für das Hell-Schema */
+:root {
+    --primary-color: #00d1b2;
+    --background-color: #ffffff;
+    --text-primary-color: #363636;
+    --text-secondary-color: #ffffff;
+}
+
+/* Dark Mode Farben */
+.dark-mode {
+    --primary-color: #ffdd57;
+    --background-color: #232323;
+    --text-primary-color: #e0e0e0;
+    --text-secondary-color: #363636;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-primary-color);
+}
+
+.navbar {
+    background-color: var(--background-color);
+}
+
 .footer {
     background-color: transparent;
 }
@@ -12,15 +37,15 @@
 }
 
 .title a {
-    color: black;
+    color: var(--text-primary-color);
 }
 
 .tag a {
-    color: white;
+    color: var(--text-secondary-color);
 }
 
 .tag.is-white a {
-    color: black;
+    color: var(--text-primary-color);
 }
 
 .tag-cloud a {
@@ -112,12 +137,6 @@ a[href].direct-link:visited {
     margin-right: 50px;
 }
 
-@media screen and (max-width: 768px) {
-    .xl-padding-right-50 {
-        margin-right: 0;
-    }
-}
-
 pre {
     counter-reset: lineNumber;
 }
@@ -147,4 +166,44 @@ th {
 .language-hint {
     text-align: right;
     padding-bottom: 15px;
+}
+
+.dark-mode .subtitle {
+    color: #c0c0c0;
+}
+
+.dark-mode .tag.is-black a {
+    color: #e0e0e0;
+}
+
+.dark-mode .panel {
+    border: 1px solid white;
+}
+
+.dark-mode a.navbar-item,
+.navbar-link {
+    color: white;
+}
+
+.dark-mode a.navbar-item:hover,
+.navbar-link:hover {
+    color: black;
+}
+
+.dark-mode h2 {
+    color: #c0c0c0;
+}
+
+.dark-mode h3 {
+    color: #c0c0c0;
+}
+
+.dark-mode .title {
+    color: #c0c0c0;
+}
+
+@media screen and (max-width: 768px) {
+    .xl-padding-right-50 {
+        margin-right: 0;
+    }
 }

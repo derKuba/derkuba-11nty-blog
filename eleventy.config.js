@@ -25,6 +25,11 @@ export default async function (eleventyConfig) {
 
     eleventyConfig.addPassthroughCopy("assets/css/*.css");
 
+    eleventyConfig.addPassthroughCopy({
+        "node_modules/bulma/css/bulma.css": "assets/css/bulma.css",
+    });
+    eleventyConfig.addPassthroughCopy({ "assets/favicons": "/" });
+
     eleventyConfig.addPassthroughCopy(
         "content/img/**/*.@(jpg|jpeg|png|gif|webp)",
     );
