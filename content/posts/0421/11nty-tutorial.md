@@ -4,91 +4,93 @@ description: Wie ist dieser Blog entstanden
 date: 2021-03-30
 tags: ["11nty", "bulma", "blog", "tutorial"]
 layout: layouts/post.njk
+lang: "de"
+alternate_lang: "en"
+alternate_url: "/posts/en/0421/11nty-tutorial"
 ---
 
-Seit langer Zeit sitzt in meinem Kopf der Gedanke einen Blog aufzusetzen. Die Umsetzung möchte ich direkt als ersten Post nutzen. <!-- endOfPreview --> Als Anforderung habe ich folgende Punkte:
+Seit langer Zeit trage ich den Gedanken mit mir, einen Blog zu erstellen. Die Umsetzung dieses Projekts möchte ich direkt als ersten Blogbeitrag nutzen. <!-- endOfPreview --> Dabei hatte ich folgende Anforderungen:
 
--   keine Datenbank
--   keine aufwendigen, runtime-bedürftigen Programmiersprachen
--   Output soll eine statische Seite sein.
+-   Keine Datenbank
+-   Keine aufwendigen, laufzeitbedürftigen Programmiersprachen
+-   Der Output sollte eine statische Seite sein.
 
-Die Google-Suche "static site generator 2021" hat folgende Seite hervorgebracht:
+Eine Google-Suche nach "static site generator 2021" brachte mich auf die folgende Seite:
 
-https://www.techradar.com/best/static-site-generators
+[Best Static Site Generators - TechRadar](https://www.techradar.com/best/static-site-generators)
 
-An erster Stelle steht Hugo. Ein sehr schneller Generator, der auf GO setzt. Hugo hatte ich bereits ausprobiert. Es ist sehr schnell und einfach, solange man ein fertiges Template verwendet. Möchte man dagegen ein eigenes, war relativ viel Gefrickel notwenig ( Stand Hugo 0.40 ). Das muss doch einfacher gehen.
-Da ich ein großes Herz für JS habe, las sich 11nty sehr gut. Es sollte schnell, einfach und ohne Frameworks wie React oder Angular auskommen. Und siehe da es ging sehr gut.
+An erster Stelle stand Hugo – ein sehr schneller Generator, der auf Go basiert. Hugo hatte ich bereits ausprobiert. Es ist extrem schnell und unkompliziert, solange man ein fertiges Template verwendet. Möchte man jedoch ein eigenes Template erstellen, wurde es (zumindest in Version 0.40 von Hugo) ziemlich fummelig. Da musste es doch eine einfachere Lösung geben.
 
-Techstack:
+Da ich eine Vorliebe für JavaScript habe, klang 11ty für mich sehr vielversprechend. Es sollte schnell, einfach und ohne Frameworks wie React oder Angular funktionieren. Und siehe da: Es funktionierte hervorragend.
+
+**Techstack:**
 
 -   [git](https://git-scm.com/)
 -   [nodejs @v14.16.0](https://nodejs.org/de/)
 -   [npm @6.14.11](https://www.npmjs.com/)
--   [11nty @0.12.1 ](https://www.11ty.dev/)
+-   [11ty @0.12.1](https://www.11ty.dev/)
 -   [Bulma @0.9.2](https://bulma.io/)
--   [prism @1.23.0 ](https://prismjs.com/)
+-   [Prism @1.23.0](https://prismjs.com/)
 
-Mit folgenden Schritten habe ich diesen Blog aufgesetzt:
+Mit den folgenden Schritten habe ich diesen Blog aufgesetzt:
 
 1. **HTML-Template erstellen**
 
-    - HTML-Grundstruktur mit
-        - Menu,
-        - Navigation,
-        - Blogdetail
+    - HTML-Grundstruktur mit:
+        - Menü
+        - Navigation
+        - Blogdetails
         - Footer
 
-2. **11nty Starter** Blog download unter: https://github.com/11ty/eleventy-base-blog
+2. **11ty Starter Blog herunterladen** von: [Eleventy Base Blog GitHub](https://github.com/11ty/eleventy-base-blog)
 
     - Starter-Template klonen und installieren
-    - Aufbau und Struktur
-    - Custom-Template überführen
+    - Struktur verstehen und anpassen
+    - Eigenes Template integrieren
 
-3. das **HTML-Template** in das Startertemplate überführen
+3. **HTML-Template** in das Starter-Template überführen
 
-### Los gehts
+### Los geht's
 
-#### Vorbedingung
+#### Voraussetzungen
 
--   Nodejs und NPM sind installiert
+-   Node.js und npm sind installiert
 
-#### 1. Template anlegen
+#### 1. Template erstellen
 
-Ein einfaches und klassisches HTML Layout ist schnell aufgesetzt. Um Zeit zu Sparen habe ich als CSS-Framework [Bulma](https://bulma.io/) genommen und das Template in folgende Teile geteilt:
+Ein klassisches HTML-Layout ist schnell erstellt. Um Zeit zu sparen, habe ich das CSS-Framework [Bulma](https://bulma.io/) verwendet und das Template in folgende Teile gegliedert:
 
 -   [Navigation](https://bulma.io/documentation/components/navbar/)
 -   Content
 -   Sidebar
 -   [Footer](https://bulma.io/documentation/layout/footer/)
 
-![html layout](/img/layout.png "HTML Template")
+![HTML Layout](/img/layout.png "HTML Template")
 
-<div class="has-text-right image-subline">Bild 1: Aufteilung Layout</div>
+<div class="has-text-right image-subline">Bild 1: Aufteilung des Layouts</div>
 
-\
-Es eignen sich auch andere Layouts und andere CSS-Frameworks. Ich hatte Lust auf eine Bootstrap-Alternative.
+Natürlich sind auch andere Layouts und CSS-Frameworks geeignet. Ich wollte jedoch etwas anderes als Bootstrap ausprobieren.
 
-#### 2. 11nty Starter installieren
+#### 2. 11ty Starter installieren
 
-[Unter der oben genannten Adresse](https://github.com/11ty/eleventy-base-blog) findet man das Standard 11nty Starter Paket. Wenn man auf den "Clone"-Button klickt, erhält man die Git-Url.
+[Unter der oben genannten Adresse](https://github.com/11ty/eleventy-base-blog) findet man das Standard-11ty-Starter-Paket. Wenn man auf den "Clone"-Button klickt, erhält man die Git-URL.
 
 ```bash
-# für ssh
+# für SSH
 git clone git@github.com:11ty/eleventy-base-blog.git mein-neuer-blog
 
-# oder https
+# oder HTTPS
 git clone https://github.com/11ty/eleventy-base-blog.git mein-neuer-blog
 ```
 
-Nun muss man in den Ordner navigieren und die Abhängigkeiten installieren:
+Nun wechselt man in das entsprechende Verzeichnis und installiert die Abhängigkeiten:
 
 ```bash
 cd mein-neuer-blog
 npm install
 ```
 
-\
-**11nty Starter-Blog starten**
+**11ty Starter-Blog starten**
 
 ```bash
 npm run server
@@ -96,75 +98,72 @@ npm run server
 npx eleventy --serve
 ```
 
-und man sollte folgendes sehen:
+Und man sollte Folgendes sehen:
 
-![11nty starter](/img/0421/11nty-starter.png "11nty starter")
+![11ty Starter](/img/0421/11nty-starter.png "11ty Starter")
 
-<div class="has-text-right image-subline">Bild 2: Ausschnitte Starter Template</div>
+<div class="has-text-right image-subline">Bild 2: Ausschnitt des Starter-Templates</div>
 
-\
-Man erkennt auf den ersten Blick, die dynamischen Elemente, die wir in unserem eigenen Template benötigen.
+Auf den ersten Blick erkennt man die dynamischen Elemente, die wir in unserem eigenen Template benötigen:
 
 -   Navigation: Menüpunkte
--   Content: Posts
--   Sidebar: die Tags
+-   Content: Beiträge
+-   Sidebar: Tags
 
-![11nty starter elements](/img/0421/starter-elements.png "11nty starter elements")
+![11ty Starter Elemente](/img/0421/starter-elements.png "11ty Starter Elemente")
 
-\
-**Aufbau und Dateistruktur**
-Für etwas mehr Übersicht habe ich einige Dateien in Ordner aufgeteilt. CSS und JS habe ich in das Verzeichnis Template gezogen, Inhaltsspezifische Dateien in den Ordner "Content" und CI-spezifische Dateien habe ich gelöscht.
+**Struktur und Dateiaufteilung**
+Für mehr Übersicht habe ich einige Dateien in Ordner aufgeteilt. CSS und JS wurden in das Verzeichnis "Template" verschoben, inhaltsspezifische Dateien in den Ordner "Content". CI-spezifische Dateien habe ich gelöscht.
 
-![Verzeichnisstruktur](/img/0421/file-structure.png "verzeichnisstruktur")
+![Verzeichnisstruktur](/img/0421/file-structure.png "Verzeichnisstruktur")
 
 <div class="has-text-right image-subline">Bild 3: Verzeichnisstruktur</div>
 
-\
-Die Dateien untergliedern sich in
+Die Dateien gliedern sich in:
 
 -   **".njk"** (Template),
--   **".md"** (Content / Posts)
--   **".json"** ( Meta und Config )
--   **".eleventy.js"** ( 11nty Konfiguration).
+-   **".md"** (Inhalt / Beiträge),
+-   **".json"** (Meta und Konfiguration),
+-   **".eleventy.js"** (11ty Konfiguration).
 
-\
- **Selbstgebautes Template verwenden**
+**Eigenes Template verwenden**
 
 Navigation:
 
--   neue Datei anlegen unter "\_includes/layouts/navigation.njk".
--   inhalt der eigenen Navigation in diese Datei kopiert.
--   unter "\_includes/layouts/base.njk" findet man das Seitenlayout mit HTML-Struktur.
-    Zeilen 13-23 beinhalten was wir benötigen. Wir entnehmen den metadata.title als Titel für unseren Blog und packen die for-Schleife (Z. 18-24)
-    in unsere nav-container.
+-   Eine neue Datei unter "\_includes/layouts/navigation.njk" anlegen.
+-   Den Inhalt der eigenen Navigation in diese Datei kopieren.
+-   In der Datei "\_includes/layouts/base.njk" findet man das Seitenlayout mit der HTML-Struktur. Die Zeilen 13–23 beinhalten, was wir benötigen. Wir entnehmen `metadata.title` als Titel für unseren Blog und fügen die for-Schleife (Z. 18–24) in unseren nav-container ein.
 
-vorher:
-![navigation](/img/0421/starter-header.png "Navigation")<div class="has-text-right image-subline">Bild 4: Code Starter-Header</div> (leider rendert an dieser Stelle 11nty den nunjuk-code und ich muss ein Bild verwenden. Vielleicht kennt jemand einen workaround?)
+Vorher:
+![Navigation](/img/0421/starter-header.png "Navigation")<div class="has-text-right image-subline">Bild 4: Code des Starter-Headers</div> (Leider rendert 11ty den nunjuk-Code nicht, daher muss ich ein Bild verwenden. Falls jemand einen Workaround kennt, gerne Bescheid geben!)
 
-nachher:
-![header](/img/0421/bulma-header.png "Header")
+Nachher:
+![Header](/img/0421/bulma-header.png "Header")
 
 <div class="has-text-right image-subline">Bild 5: Bulma Header</div>
-Wir überführen die For-Schleife in den navigation-items container.
+
+Wir übertragen die for-Schleife in den Container für die Navigationselemente.
 Anschließend
 
--   in der "base.njk"-datei löschen wir nun den Inhalt wie er auf dem vorher-Bild zu sehen ist und ersetzen in durch <div class="clear-image">![Include Header](/img/0421/include-header.png "Include Header")</div> und die Datei sollte wie folgt aussehen:
+-   löschen wir in der "base.njk"-Datei den Inhalt, wie er im "Vorher"-Bild zu sehen ist, und ersetzen ihn durch `<div class="clear-image">![Include Header](/img/0421/include-header.png "Include Header")</div>`. Die Datei sollte dann so aussehen:
+
 ![Base Datei](/img/0421/base.png "Base-Datei")
+
 <div class="has-text-right image-subline">Bild 6: Starter-Template Base</div>
-Neben den eigenen CSS-Dateien, dem Bulma-Burger-Menu-Javascript, sieht man die Navigation und den Footer.
 
-\
-**Content:**
+Neben den eigenen CSS-Dateien und dem Bulma-Burger-Menu-JavaScript sieht man die Navigation und den Footer.
 
-Der Content-Bereich unterscheidet sich jetzt je nachdem auf welcher Seite man sich befindet. Ich möchte, dass auf der Hauptseite die Sidebar sichtbar ist und auf den Post-Detailseiten nicht. Daher werden jetzt die vorgefertigten Dateien **/\_includes/layouts/** <em>-home.njk</em> und <em>-postlist.njk</em> für die Hauptseite relevant und die<em>post.njk</em> Datei für die Detailseite.
+**Inhalt:**
 
-Für Content-Bereich wurde der Starter-Template Code mit dem eigenen Template verbunden:
+Der Inhalt unterscheidet sich je nach Seite. Auf der Hauptseite möchte ich die Sidebar sichtbar haben, auf den Beitragsdetailseiten jedoch nicht. Daher sind die Dateien **/\_includes/layouts/home.njk** und **postlist.njk** für die Hauptseite relevant, während **post.njk** für die Detailseite verwendet wird.
 
-![content](/img/0421/content-area.png "Content Bereicht")
+Der Starter-Template-Code wurde mit dem eigenen Template für den Inhaltsbereich verbunden:
 
-<div class="has-text-right image-subline">Bild 7:Content Bereich</div>
+![Inhaltsbereich](/img/0421/content-area.png "Inhaltsbereich")
 
-Neben dem kopierten Standardcode entdeckt der findige Leser auch den Bereich in Zeile 19. Dort mappe ich anhand des Indexes die Bulma Tag Klassen an den Tag, um so ein wenig Farbe in den Seitenbereich zu bekommen. Dafür habe ich einen weiteren Short-Code angelegt in der <em>.eleventy.js-</em>Datei angelegt:
+<div class="has-text-right image-subline">Bild 7: Inhaltsbereich</div>
+
+Neben dem kopierten Standardcode entdeckt man in Zeile 19 einen Bereich, in dem ich mithilfe des Indexes die Bulma-Tag-Klassen an die Tags mappe, um etwas Farbe in den Inhaltsbereich zu bringen. Dafür habe ich einen weiteren Shortcode in der Datei **.eleventy.js** angelegt:
 
 ```javascript
 eleventyConfig.addPairedShortcode("badge", function (_, index) {
@@ -177,29 +176,22 @@ eleventyConfig.addPairedShortcode("badge", function (_, index) {
         "is-warning",
         "is-danger",
     ];
-    if (index < badge.length) {
-        return badge[index];
-    }
-
-    const color = index % badge.length;
-
-    return badge[color];
+    return badge[index % badge.length];
 });
 ```
 
-Für den Detail-Bereich wurde der Starter-Template Code mit dem eigenen Template verbunden:
+Der Starter-Template-Code wurde auch für den Detailbereich mit dem eigenen Template verbunden:
 
-![post detail](/img/0421/post-detail.png "Post Detail Seite")
+![Beitragsdetail](/img/0421/post-detail.png "Beitragsdetailseite")
 
-<div class="has-text-right image-subline">Bild 8: Detail Seite</div>
+<div class="has-text-right image-subline">Bild 8: Beitragsdetailseite</div>
 
-Für die List der Posts wurde der Starter-Template Code mit dem eigenen Template verbunden:
+Auch für die Liste der Beiträge wurde der Starter-Template-Code mit dem eigenen Template verbunden:
 
-![Post-List](/img/0421/postlist.png "Liste aller Posts")
+![Beitragsliste](/img/0421/postlist.png "Beitragsliste")
 
-<div class="has-text-right image-subline">Bild 9: Detailseite Posts</div>
+<div class="has-text-right image-subline">Bild 9: Beitragsliste</div>
 
-Auch hier verwende ich noch einen weitern Custom-Filter "readingTime", den ich aus dem weiteren Starter-Template
-https://github.com/muenzpraeger/eleventy-chirpy-blog-template/blob/main/.eleventy.js entnommen habe, um die Lesedauer anzuzeigen.
+Zusätzlich verwende ich den Custom-Filter "readingTime", den ich aus dem Starter-Template [Eleventy Chirpy Blog](https://github.com/muenzpraeger/eleventy-chirpy-blog-template/blob/main/.eleventy.js) übernommen habe, um die Lesedauer anzuzeigen.
 
-Damit niemand den Code abtippen muss, habe ich die relevanten Dateien auf [Github/derKuba](https://github.com/derKuba/eleventy-examples) abgelegt.
+Damit niemand den Code abtippen muss, habe ich die relevanten Dateien auf [GitHub/derKuba](https://github.com/derKuba/eleventy-examples) abgelegt.
