@@ -6,6 +6,7 @@
     "type": "module",
     "scripts": {
         "build": "npx @11ty/eleventy",
+        "export": "npm run build && node ./helper/export.js",
         "dev": "npx @11ty/eleventy --serve"
     },
     "repository": {
@@ -48,6 +49,7 @@
     "devDependencies": {
         "@11ty/eleventy-img": "^4.0.2",
         "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
-        "bulma": "^1.0.2"
+        "bulma": "^1.0.2",
+        "fs-extra": "^11.2.0"
     }
 }

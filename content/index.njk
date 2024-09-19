@@ -5,7 +5,7 @@ eleventyNavigation:
   order: 1
 ---
 
-{% set maxPosts = collections.posts.length | min(10) %}
-{% set postslist = collections.posts | head(-10) %}
-{% set postslistCounter = collections.posts | length %}
+{% set maxPosts = collections.allPostsExceptEnglish.length | min(10) %}
+{% set postslist = collections.allPostsExceptEnglish | head(-10) %}
+{% set postslistCounter = collections.allPostsExceptEnglish | length %}
 {% include "layouts/components/postslist.njk" %}

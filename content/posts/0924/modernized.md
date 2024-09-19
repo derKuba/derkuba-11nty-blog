@@ -16,7 +16,7 @@ Nach einiger Zeit habe ich etwas Zeit gefunden diesen Blog aufzuräumen. Es hat 
 -   Die Texte sind jetzt alle automatisch gegengelesen und verbessert
 -   Die meisten Inhalte gibts nun auch auf Englisch.
 -   Ein Darkmode kommt nach uns nach hinzu.
--   das Beste zum Schluss: der gesamte Code ist Open Source :-)
+-   das Beste zum Schluss: [der gesamte Code ist Open Source](https://github.com/derKuba/derkuba-11nty-blog) :-)
 
 Durchsage Ende. Danke.
 
