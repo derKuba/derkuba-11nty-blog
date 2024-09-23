@@ -2,7 +2,7 @@
 title: "Warum du Bibliotheken nicht manuell speichern solltest: npm als bessere Lösung"
 description: Frühjahresputz im Herbst
 date: 2024-09-18
-tags: ["stenciljs"]
+tags: ["html"]
 layout: layouts/post.njk
 lang: "de"
 #alternate_lang: "en"

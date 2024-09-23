@@ -2,7 +2,7 @@
 title: "Modernisiert und Open Source"
 description: Frühjahresputz im Herbst
 date: 2024-09-18
-tags: ["stenciljs"]
+tags: ["blog"]
 layout: layouts/post.njk
 lang: "de"
 #alternate_lang: "en"
