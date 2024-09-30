@@ -24,6 +24,7 @@ export default async function (eleventyConfig) {
     eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
 
     eleventyConfig.addPassthroughCopy("assets/css/*.css");
+    eleventyConfig.addPassthroughCopy("assets/images/*.png");
 
     eleventyConfig.addPassthroughCopy({
         "node_modules/bulma/css/bulma.css": "assets/css/bulma.css",

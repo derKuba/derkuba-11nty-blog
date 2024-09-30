@@ -14,11 +14,11 @@ npm run generate kuba-input
 
 Der Befehl startet eine Art Wizard und fragt ab was wir erzeugen möchten:
 
-![generate](/content/img/stenciljs-tutorial/generate.png "generate")<div class="has-text-right image-subline">Bild 1: Generator</div>
+![generate](/img/stenciljs-tutorial/generate.png "generate")<div class="has-text-right image-subline">Bild 1: Generator</div>
 
 Ich habe mich für Stylesheet und Unit-Test entschieden. Die E2E Tests lasse ich erstmal außen vor.
 
-![kuba-input](/content/img/stenciljs-tutorial/kuba-input.png "kuba input")<div class="has-text-right image-subline">Bild 2: Meine erste Komponente</div>
+![kuba-input](/img/stenciljs-tutorial/kuba-input.png "kuba input")<div class="has-text-right image-subline">Bild 2: Meine erste Komponente</div>
 
 "kuba-input" ist meine erste Komponente. Der Name setzt sich aus [namespace]-[Komponentenname] zusammen und entspricht dem zukünftigen HTML-Tag. Man findet einen Ordner kuba-input unter src/components/kuba-input, in dem sich drei Dateien befinden. Die eigentliche Komponente _kuba-input.tsx_, die dazugehörige CSS _kuba-input.css_ und der Unit-Test _kuba-input.spec.tsx_. Wer sich jetzt über die Dateiendung _.tsx_ wundert, sollte sich nicht abschrecken lassen. TSX bedeutet, dass es sich um eine Typescript Datei handelt, in der sich HTML innerhalb des Codes befindet.
 
@@ -68,7 +68,7 @@ export class AppRoot {
                     <kuba-input></kuba-input>
                 </main>
 
-                {/* 
+                {/*
           <stencil-router>
             <stencil-route-switch scrollTopOffset={0}>
               <stencil-route url="/" component="app-home" exact={true} />
@@ -84,7 +84,7 @@ export class AppRoot {
 
 Für dieses Tutorial möchte ich folgenden Fall umsetzen. Wir legen Komponente an, die ein Inputfeld und einen Button besitzt. Wenn ich den Button drücke, bekomme ich den Inhalt in einem Alert angezeigt.
 
-![simple-input](/content/img/stenciljs-tutorial/simple-input.png "simple input")<div class="has-text-right image-subline">Bild 3: Use-Case</div>
+![simple-input](/img/stenciljs-tutorial/simple-input.png "simple input")<div class="has-text-right image-subline">Bild 3: Use-Case</div>
 
 Dazu brauchen wir drei Komponenten:
 

@@ -168,6 +168,10 @@ th {
     padding-bottom: 15px;
 }
 
+.language-hint img {
+    display: inline;
+}
+
 .dark-mode .subtitle {
     color: #c0c0c0;
 }

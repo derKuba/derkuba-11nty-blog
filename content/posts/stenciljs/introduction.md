@@ -32,9 +32,9 @@ Als fachlichen Unterbau eignet sich hervorragend eine CRUD-Anwendung und ich hab
 #### Scribbles der Anwendung
 
 Man erkennt eine einfach Liste, die alle Einträge des Adressbuchs enthält. Wenn man auf den Editieren-Link klickt, wird man auf die Detailseite geleitet. Bei einem Klick auf Löschen wird dieser Eintrag entfernt.
-![Liste](/content/img/stenciljs-tutorial/list-design.png "Liste")<div class="has-text-right image-subline">Bild 1: Kontaktliste</div>
+![Liste](/img/stenciljs-tutorial/list-design.png "Liste")<div class="has-text-right image-subline">Bild 1: Kontaktliste</div>
 
-![Detailseite](/content/img/stenciljs-tutorial/detail-page-design.png "Detailseite")<div class="has-text-right image-subline">Bild 2: Detailseite</div>
+![Detailseite](/img/stenciljs-tutorial/detail-page-design.png "Detailseite")<div class="has-text-right image-subline">Bild 2: Detailseite</div>
 
 Auf der Detailseite gibt es für jedes Feld eine Eingabebox. Der Speichern-Button persistiert die Eingaben, man wird auf die Liste zurückgeleitet und man sieht, dass ein Eintrag zusätzlich vorhanden ist.
 

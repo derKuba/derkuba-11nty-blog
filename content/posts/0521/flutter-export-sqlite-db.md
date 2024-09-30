@@ -1,16 +1,19 @@
 ---
 title: How to export SQlite Database File in Flutter (Android)
-description: SQlite Database aus der Applikation exportieren unter Android
+description: SQlite-Datenbank aus der App unter Android exportieren
 date: 2021-05-02
-tags: ["flutter", "sqllite"]
+tags: ["flutter", "sqlite"]
 layout: layouts/post.njk
+lang: "de"
+alternate_lang: "en"
+alternate_url: "/posts/en/0521/flutter-export-sqlite-db"
 ---
 
-Eine der vielen Möglichkeiten für das Speichern von Daten innerhalb einer [Flutter-App](https://flutter.dev/) ist [SQlite](https://www.sqlite.org/index.html). SQlite bietet eine Relationale-Datenbank innerhalb der App ohne externe Ahhänigkeit und ohne Datenverkehr über das Internet. <!-- endOfPreview -->Es ist sehr praktisch und für kleinere, einfachere Statements performant. Wer eine Übersicht über die Möglichkeiten zum Speichern von Daten innerhalb von Flutter sucht, dem empfehle ich folgenden [Artikel (flutter-databases-sqflite-hive-objectbox-and-moor)](https://objectbox.io/flutter-databases-sqflite-hive-objectbox-and-moor/). [Die Flutter-Doku](https://flutter.dev/docs/cookbook/persistence/sqlite) erklärt sehr gut wie man SQlite in seiner App integriert.
+Eine der vielen Möglichkeiten, Daten in einer [Flutter-App](https://flutter.dev/) zu speichern, ist [SQLite](https://www.sqlite.org/index.html). SQLite bietet eine relationale Datenbank innerhalb der App, ohne externe Abhängigkeiten und ohne Datenverkehr über das Internet. <!-- endOfPreview --> Es ist sehr praktisch und für kleinere, einfachere Anfragen performant. Wer eine Übersicht über die Möglichkeiten zum Speichern von Daten in Flutter sucht, dem empfehle ich diesen [Artikel (flutter-databases-sqf...
 
-Ich habe eine App gebaut, die Daten in der SQlite abspeichert. Nun stand ich vor dem Problem wie ich die Daten migrieren kann, falls ich z.B. das Handy wechsle. Da SQlite die Daten in eine \*.db Datei schreibt, muss es eine Möglichkeit geben an diese Datei auf dem Telefon zu gelangen und diese aus der App zu exportieren. Wie man das erreichen kann, möchte ich mit euch teilen.
+Ich habe eine App erstellt, die Daten in einer SQLite-Datenbank speichert. Nun stand ich vor dem Problem, wie ich die Daten migrieren kann, z. B. wenn ich das Handy wechsle. Da SQLite die Daten in eine \*.db-Datei schreibt, muss es eine Möglichkeit geben, auf diese Datei auf dem Telefon zuzugreifen und sie aus der App zu exportieren. Wie man das erreicht, möchte ich hier teilen.
 
-Voraussetzung ist eine Flutter App und folgende Bibliotheken:
+Voraussetzung ist eine Flutter-App und die folgenden Bibliotheken:
 
 ```yaml
 dependencies:
@@ -22,30 +25,30 @@ dependencies:
     downloads_path_provider: ^0.1.0
 ```
 
--   **sqflite**: SQlite-Bibliothek
--   **path**: Pfade
--   **permission_handler**: Rechte auf dem Gerät
--   **downloads_path_provider**: Pfad zum Downloads-Ordner
+-   **sqflite**: SQLite-Bibliothek
+-   **path**: Dateipfade
+-   **permission_handler**: Berechtigungen auf dem Gerät
+-   **downloads_path_provider**: Pfad zum Download-Ordner
 
-Die Idee der Umsetzung war folgende:
+Die Umsetzungsidee war wie folgt:
 
 1. Überprüfe die Schreibrechte auf dem Gerät.
 2. Finde den Pfad zur \*.db-Datei.
-3. Öffne diese Datei und schreibe eine Kopie in das Download-Verzeichnis des Telefons.
+3. Öffne die Datei und speichere eine Kopie im Download-Ordner des Telefons.
 
 <br/>
 
 #### 1. Schreibrechte
 
-Damit man Dateien auf dem Telefon schreiben und lesen kann, benötigt man Schreibrechte. **Achtung!** Ich beziehe mich hier nur auf das Android-System.
-Um an Schreibrechte zu gelangen muss man folgende Zeilen in die Datei **_/android/app/src/main/AndroidManifest.xml_** hinzufügen.
+Um Dateien auf dem Telefon lesen und schreiben zu können, benötigt man Schreibrechte. **Achtung!** Ich beziehe mich hier nur auf das Android-System.
+Um Schreibrechte zu erhalten, füge die folgenden Zeilen in die Datei **_/android/app/src/main/AndroidManifest.xml_** ein:
 
 ```xml
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 ```
 
-Damit der Nutzer überhaupt mitbekommt, dass diese Rechte benötigt werden, empfehle ich das Paket _permission_handler_. Damit kann man den Nutzer komfortabel auf Schreibrechte hinweisen und diese direkt auch abfragen.
+Damit der Nutzer überhaupt erkennt, dass diese Rechte benötigt werden, empfehle ich das Paket _permission_handler_. Damit kann man den Nutzer komfortabel auf die benötigten Schreibrechte hinweisen und diese direkt abfragen.
 
 ```dart
 var status = await Permission.storage.status;
@@ -55,39 +58,39 @@ if (status.isDenied) {
 }
 ```
 
-Die erste Zeile fragt das System an, ob überhaupt Rechte in der oben beschriebenen xml eingetragen wurden und dann das Telefon, ob der Telefonnutzer die Rechte freigegeben hat. Die dritte Zeile lässt einen Dialog erscheinen, der dem Nutzer diese Auwahl anbietet.
+Die erste Zeile prüft, ob die Rechte in der oben beschriebenen XML-Datei eingetragen wurden, und anschließend, ob der Nutzer die Rechte freigegeben hat. Die dritte Zeile lässt einen Dialog erscheinen, der dem Nutzer diese Auswahl anbietet.
 
 ![schreibrechte](/img/0521/right-granted.png "schreibrechte")
 
-Wurden diese Rechte erlaubt, können wir die Dateien schreiben.
+Sobald die Rechte erteilt wurden, können wir Dateien schreiben.
 
 #### 2. Dateipfade
 
-Die Dateipfade sind etwas versteckt und wir benötigen die oben genannten Module als Hilfe.
+Die Dateipfade sind etwas versteckt, und wir benötigen die oben genannten Module als Hilfe.
 
 **Pfad zur bestehenden Datenbank.db**
 
 ```dart
-String dbName = "doggie_database.db"; // name of the db
-var databasesPath = await getDatabasesPath(); // default database path
+String dbName = "doggie_database.db"; // Name der Datenbank
+var databasesPath = await getDatabasesPath(); // Standard-Datenbankpfad
 var innerPath = join(databasesPath, dbName);
 print(innerPath);
 // /data/user/0/com.example.flutter_sqlite_database_export/databases/doggie_database.db
 ```
 
-**Pfad ins Downloadverzeichnis**
+**Pfad zum Download-Verzeichnis**
 
 ```dart
 Directory tempDir = await DownloadsPathProvider.downloadsDirectory;
 String tempPath = tempDir.path;
 ```
 
-**Ausflug in dein Android-Datenbankverzeichnis**
-Wer in seine bestehende und laufende Applikation reinschauen möchte, dem empfehle ich im Android-Studio den **_Device-File-Explorer_**.
+**Einblick ins Android-Datenbankverzeichnis**
+Wer in seine laufende Applikation schauen möchte, dem empfehle ich im Android-Studio den **_Device-File-Explorer_**.
 
 ![device file explorer](/img/0521/file-explorer.png "device file explorer")
 
-Unter **_/data/data/[name eurer applikation]/databases/nameEurerDB.db_** findet ihr eure SQlite Datenbank und könnte diese exportieren.
+Unter **_/data/data/[name eurer Applikation]/databases/[NameEurerDB].db_** findet ihr eure SQLite-Datenbank und könnt diese exportieren.
 
 #### 3. Datenbank.db exportieren
 
@@ -104,9 +107,9 @@ File(filePath).writeAsBytes(
 ));
 ```
 
-Die Datenbank-Datei wird als Bytes gelesen, und im Standard Dart I/O Verfahren von einem Ort zum anderen geschrieben. So erhält man eine Datenbank-Export für die in der App verwendete Datenbank.
+Die Datenbankdatei wird als Byte-Daten gelesen und im Standard-Dart-I/O-Verfahren von einem Ort an einen anderen kopiert. So erhält man einen Export der in der App verwendeten Datenbank.
 
-Hier nochmal die ganze Methode samt Aufruf:
+Hier nochmal die komplette Methode mit Aufruf:
 
 ```dart
 Future<File> _writeDBFileToDownloadFolder() async {
@@ -145,16 +148,16 @@ onPressed: () async {
 
 ```
 
-Schaut man nun auf dem Telefon über die App "Files" in das Downloadverzeichnis, findet man die besagte Datei.
+Wenn man auf dem Telefon die App "Files" öffnet und in das Download-Verzeichnis schaut, findet man die exportierte Datei.
 
 Great Success! :-)
 
-Diese Code-Blöcke eingebacken in die Flutter-Starter-Applikation habe ich unter [Github](https://github.com/derKuba/flutter-sqlite-database-export) für euch zur Verfügung gestellt.
+Diese Code-Blöcke, eingebettet in die Flutter-Starter-App, habe ich für euch auf [GitHub](https://github.com/derKuba/flutter-sqlite-database-export) bereitgestellt.
 
-Ihr habt Fragen oder Anregungen? Schreibt mir bei [Twitter](https://twitter.com/der_kuba)
+Ihr habt Fragen oder Anregungen? Schreibt mir bei [Twitter](https://twitter.com/der_kuba).
 
 **_Nachtrag vom 07.05.2021_**
-Auf Android Q reicht der oben erwähnte Zusatz in der XML nicht aus. Man muss noch folgendes ergänzen:
+In Android Q reicht der oben erwähnte Eintrag in der XML nicht aus. Es muss noch Folgendes hinzugefügt werden:
 
 ```
   android:requestLegacyExternalStorage="true"
@@ -162,7 +165,7 @@ Auf Android Q reicht der oben erwähnte Zusatz in der XML nicht aus. Man muss no
 
 sodass die **_/android/app/src/main/AndroidManifest.xml_** wie folgt aussieht:
 
-```
+```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
   package="com.example.flutter_sqlite_database_export">
   <application
@@ -178,7 +181,6 @@ sodass die **_/android/app/src/main/AndroidManifest.xml_** wie folgt aussieht:
 
 Ihr habt Fragen oder Anregungen? Schreibt mir bei [Twitter](https://twitter.com/der_kuba).
 
-\
 Tausend Dank fürs Lesen!
 
 Kuba
