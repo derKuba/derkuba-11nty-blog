@@ -59,7 +59,7 @@ That’s absolutely fine. But don’t start rambling or making something up. Any
 
 #### 6. Uncomfortable Clothing
 
-Far too often, candidates show up in suits that are too tight or too loose, fidgeting with their collars and sweating. It’s not a problem to ask about the dress code beforehand. The company’s website often gives you a good idea of what to expect in terms of clothing. While clothes do make the man, they also reveal whether you feel comfortable. If you’re not a fan of suits, wearing slacks with a polo shirt is perfectly fine. It’s important to consider whether you’re applying for a consulting role or an in...
+Far too often, candidates show up in suits that are too tight or too loose, fidgeting with their collars and sweating. It’s not a problem to ask about the dress code beforehand. The company’s website often gives you a good idea of what to expect in terms of clothing. While clothes do make the man, they also reveal whether you feel comfortable. If you’re not a fan of suits, wearing slacks with a polo shirt is perfectly fine. It’s important to consider whether you’re applying for a consulting role or an in house development. Your new employer will judge whether you can be shown to a client.
 A neat appearance and clean clothes are more than enough. You don’t always need a suit.
 
 <hr/>

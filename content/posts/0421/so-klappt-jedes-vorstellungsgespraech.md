@@ -59,7 +59,7 @@ Das ist überhaupt kein Problem. Aber bitte fange nicht an zu faseln oder dir et
 
 #### 6. Unbequeme Kleidung
 
-Viel zu oft sitzen vor mir potenzielle Kollegen im Anzug. Sie schwitzen, fummeln am Kragen, und der Anzug sitzt entweder zu eng oder zu weit. Man merkt deutlich, dass sie sich unwohl fühlen. Es ist kein Problem, vorher nach dem Dresscode zu fragen. Die Webseite des Unternehmens zeigt oft, was kleidungstechnisch zu erwarten ist. Kleidung macht zwar Leute, zeigt aber auch, ob du dich wohlfühlst. Wenn du Anzüge nicht magst, sind Stoffhose und Poloshirt völlig in Ordnung. Achte nur darauf, ob du dich für ei...
+Viel zu oft sitzen vor mir potenzielle Kollegen im Anzug. Sie schwitzen, fummeln am Kragen, und der Anzug sitzt entweder zu eng oder zu weit. Man merkt deutlich, dass sie sich unwohl fühlen. Es ist kein Problem, vorher nach dem Dresscode zu fragen. Die Webseite des Unternehmens zeigt oft, was kleidungstechnisch zu erwarten ist. Kleidung macht zwar Leute, zeigt aber auch, ob du dich wohlfühlst. Wenn du Anzüge nicht magst, sind Stoffhose und Poloshirt völlig in Ordnung. Achte nur darauf, ob du dich für eine Consulting Stelle oder eine Inhouse-Entwicklung bewirbst. Dein neue Arbeitgeber wird beurteilen, ob man dich einem Kunden zeigen kann.
 Ein gepflegtes Äußeres und saubere Kleidung reichen vollkommen aus. Es muss nicht immer ein Anzug sein.
 
 <hr/>
@@ -91,7 +91,8 @@ Folgende Punkte eignen sich gut als Fragen:
 -   Wie läuft ein Feature von der Idee bis zum Live-Deployment ab?
 -   Wie, wann und womit wird deployed?
 -   Wie arbeiten die Teams zusammen, und wie läuft die Kommunikation?
--   Stellt euch euren optimalen Arbeitstag vor und stellt dazu Fragen.
+
+Stellt euch euren optimalen Arbeitstag vor und stellt dazu Fragen.
 
 <hr/>
 
@@ -113,4 +114,9 @@ Viele dieser Verhaltensweisen kann man mit Nervosität entschuldigen, und sie si
 #### 10. Was motiviert dich?
 
 Ich habe selten erlebt, dass unbedingt ein bestimmtes Skill-Set gesucht wird. Es geht meist um den Menschen dahinter und die Einstellung. Alles andere kann man dem neuen Kollegen beibringen. Niemand wird auf Dauer einen brillanten Entwickler behalten, der nicht im Team arbeiten kann, keine anderen Meinungen akzeptiert und allen das Leben schwer macht. Also, was treibt dich an? Was brauchst du zum Arbeiten? Was möchtest du lernen? Wie möchtest du dich weiterentwickeln? Beantworte diese Fragen für dich ...
-Hast du Fragen oder Anregungen? Schreib mir auf [Twitter](https://twitter.com/der_kuba)
+
+Habt ihr Fragen oder Anregungen? Schreibt mir bei [Twitter](https://twitter.com/der_kuba) oder bei [LinkedIn](https://www.linkedin.com/in/jacob-pawlik-08a40015b/).
+\
+Tausend Dank fürs Lesen!
+
+Kuba
