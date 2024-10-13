@@ -9,7 +9,7 @@ alternate_lang: "de"
 alternate_url: "/posts/1024/raspberry-os"
 ---
 
-Sometimes, things just seem cursed. You buy yourself a new gadget with all the excitement in the world—like I did with the **Raspberry Pi Zero 2 W**. This tiny technological marvel was supposed to spark a new project, something cool to tinker with. The plan: quickly flash the **Raspberry OS Lite** onto an SD card using the official [Raspberry Pi Imager](https://www.raspberrypi.com/software/) and get started. That was the idea, at least.
+Sometimes, things just seem cursed. You buy yourself a new gadget with all the excitement in the world—like I did with the **Raspberry Pi Zero 2 W**. This tiny technological marvel was supposed to spark a new project, something cool to tinker with. The plan: quickly flash the **Raspberry OS Lite** onto an SD card using the official [Raspberry Pi Imager](https://www.raspberrypi.com/software/) and get started. That was the idea, at least.<!-- endOfPreview -->
 
 ![Image](/img/1024/rasp-os1.png "Raspberry Imager")<div class="has-text-right image-subline">Bild 1: Raspberry Image</div>
 

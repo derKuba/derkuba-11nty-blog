@@ -9,7 +9,7 @@ alternate_lang: "en"
 alternate_url: "/posts/en/1024/raspberry-os"
 ---
 
-Manchmal ist es ja einfach wie verhext. Du kaufst dir voller Vorfreude ein neues Gadget, in meinem Fall einen **Raspberry Pi Zero 2 W**. Dieses winzige technische Wunderwerk hatte ich mir geholt, um mal wieder ein bisschen zu tüfteln und nebenbei was Cooles damit zu bauen. Die Idee: Schnell das **Raspberry OS Lite** über den Imager von der offiziellen [Raspberry Pi Seite](https://www.raspberrypi.com/software/) draufklatschen und loslegen. Das war zumindest der Plan.
+Manchmal ist es ja einfach wie verhext. Du kaufst dir voller Vorfreude ein neues Gadget, in meinem Fall einen **Raspberry Pi Zero 2 W**. Dieses winzige technische Wunderwerk hatte ich mir geholt, um mal wieder ein bisschen zu tüfteln und nebenbei was Cooles damit zu bauen. Die Idee: Schnell das **Raspberry OS Lite** über den Imager von der offiziellen [Raspberry Pi Seite](https://www.raspberrypi.com/software/) draufklatschen und loslegen. Das war zumindest der Plan. <!-- endOfPreview -->
 
 ![Image](/img/1024/rasp-os1.png "Raspberry Imager")<div class="has-text-right image-subline">Bild 1: Raspberry Image</div>
 
