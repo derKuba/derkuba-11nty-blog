@@ -7,7 +7,6 @@ layout: layouts/post.njk
 #lang: "de"
 #alternate_lang: "en"
 #alternate_url: "/posts/en/0122/connecting-address-book-to-backend"
-eleventyExcludeFromCollections: true
 ---
 
 Heute versuche ich mich inspiriert durch den wunderbaren [Dr. Lukas Pustina](https://lukas.pustina.de/) und dem Thema Heimautomatisierung an einer Statusanzeige.
@@ -44,5 +43,3 @@ Gerne an jacob@derkuba.de
 Viele Grüße
 
 Euer Kuba
-
-

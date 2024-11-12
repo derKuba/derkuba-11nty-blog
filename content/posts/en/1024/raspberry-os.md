@@ -2,7 +2,7 @@
 title: "Weekly Fuckup: Raspberry Pi Zero 2 W – A Small Wiring Mess with a Big Lesson"
 description: Wie stellt man Storybook ein?
 date: 2024-10-12
-tags: ["stenciljs", "storybook"]
+tags: ["raspberry pi", "fuckup"]
 layout: layouts/post.njk
 lang: "en"
 alternate_lang: "de"
@@ -18,7 +18,6 @@ Sometimes, things just seem cursed. You buy yourself a new gadget with all the e
 ![Image](/img/1024/rasp-os3.png "Wlan-Daten eintragen")<div class="has-text-right image-subline">Bild 3: Wlan-Daten eintragen</div>
 
 ![Image](/img/1024/rasp-os6.png "ssh aktivieren")<div class="has-text-right image-subline">Bild 6: ssh aktivieren</div>
-
 
 Well, you know how plans go: they work—until they don't.
 

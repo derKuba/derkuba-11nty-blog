@@ -2,7 +2,7 @@
 title: "Fuckup der Woche: Raspberry Pi Zero 2 W - Wenn das Setup nervt und der Wlan-Zugang klemmt"
 description: Wie stellt man Storybook ein?
 date: 2024-10-12
-tags: ["stenciljs", "storybook"]
+tags: ["raspberry pi", "fuckup"]
 layout: layouts/post.njk
 lang: "de"
 alternate_lang: "en"
@@ -18,7 +18,6 @@ Manchmal ist es ja einfach wie verhext. Du kaufst dir voller Vorfreude ein neues
 ![Image](/img/1024/rasp-os3.png "Wlan-Daten eintragen")<div class="has-text-right image-subline">Bild 3: Wlan-Daten eintragen</div>
 
 ![Image](/img/1024/rasp-os6.png "ssh aktivieren")<div class="has-text-right image-subline">Bild 6: ssh aktivieren</div>
-
 
 Nun, wie das mit Plänen so ist: Sie funktionieren – bis sie es nicht mehr tun.
 
