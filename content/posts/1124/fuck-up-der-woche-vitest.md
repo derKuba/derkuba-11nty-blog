@@ -8,9 +8,9 @@ layout: layouts/post.njk
 
 In meinem SolidJS-Projekt wollte ich unsere firmeninterne Präferenz für Vite nutzen, was nahelegt, auch **Vitest** als Test-Framework zu verwenden. Das schien der naheliegende Schritt für Unit-Tests zu sein, und die Integration funktionierte anfangs auch ziemlich gut. Die Tests liefen reibungslos und waren leicht zu schreiben. Aber dann fing das eigentliche Drama an…
 
-![Image](/img/1124/121124-fuckup.png "github error")
-
 <!-- endOfPreview -->
+
+![Image](/img/1124/121124-fuckup.png "github error")
 
 ## Die erste Hürde: Coverage und Test-Thresholds
 
