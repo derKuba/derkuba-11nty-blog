@@ -1,5 +1,5 @@
 ---
-title: "Fuckup der Woche:  Fuckup der Woche: Spaß mit Vitest, Jest und der CI"
+title: "Fuckup der Woche: Wie ein unscheinbarer Origin-Header unsere Proxy-Konfiguration sabotierte"
 description: Eine Leidensgeschichte aus dem Unit-Testing
 date: 2024-11-08
 tags: ["vite", "typescript", "ssl", "fuckup"]

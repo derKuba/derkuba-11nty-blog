@@ -16,7 +16,7 @@
 
 body {
     background-color: var(--background-color);
-    color: var(--text-primary-color);
+    color: var(--text-primary-color) !important;
 }
 
 .navbar {
@@ -34,6 +34,10 @@ body {
 .post-list__item {
     list-style: none;
     margin-bottom: 40px;
+}
+
+.title {
+    color: var(--text-primary-color);
 }
 
 .title a {
@@ -108,6 +112,7 @@ a[href].direct-link:visited {
 .navbar-brand__title {
     font-size: 1.3rem;
     font-weight: bold;
+    color: var(--text-primary-color);
 }
 
 .image-subline {
@@ -204,6 +209,19 @@ th {
 
 .dark-mode .title {
     color: #c0c0c0;
+}
+
+strong {
+    color: var(--text-primary-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--text-primary-color) !important;
 }
 
 @media screen and (max-width: 768px) {
