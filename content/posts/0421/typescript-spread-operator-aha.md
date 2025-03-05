@@ -106,7 +106,7 @@ Meine Erwartung war, dass im ersten Testcase das "first"-Objekt an der Stelle "a
 
 Waaaaaat.
 
-Laut https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_f%C3%BCr_objektliterale hätte doch alles klappen sollen.
+Laut [developer.mozilla.org](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_f%C3%BCr_objektliterale) hätte doch alles klappen sollen.
 
 Schnell mal googeln wie man sonst noch Objekte klonen kann:
 
