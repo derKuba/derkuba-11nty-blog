@@ -9,7 +9,7 @@ alternate_lang: "en"
 alternate_url: "/posts/en/0421/11nty-bullma-error"
 ---
 
-Wer [11nty](https://www.11ty.dev/) mit [Bulma](https://bulma.io/) als CSS-Framework nutzt und zusätzlich den Code-Highlighter [PrismJS](https://prismjs.com/) hinzufügt, könnte auf folgenden Darstellungsfehler stoßen:
+Wer [11nty](https://www.11ty.dev/) mit [Bulma](https://bulma.io/) als CSS-Framework nutzt und zusätzlich den Code-Highlighter [PrismJS](https://prismjs.com/) hinzufügt, könnte auf folgenden Darstellungsfehler stoßen:<!-- endOfPreview -->
 
 ![bulma css error](/img/0421/bulma-css-error.png "Bulma-Prism-CSS-Error")
 

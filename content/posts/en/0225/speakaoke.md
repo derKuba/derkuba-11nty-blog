@@ -9,7 +9,7 @@ alternate_lang: "de"
 alternate_url: "/posts/0225/speakaoke"
 ---
 
-Have you ever had to give a spontaneous presentation but had no idea about the topic? That’s exactly the idea behind **Speakaoke** – a web app that generates presentations on any topic at the push of a button! You enter a keyword (e.g., _jellyfish_), and within seconds, you get a ready-made presentation with five slides, created using OpenAI. With **Reveal.js**, you can immediately start presenting.
+Have you ever had to give a spontaneous presentation but had no idea about the topic? <!-- endOfPreview -->That’s exactly the idea behind **Speakaoke** – a web app that generates presentations on any topic at the push of a button! You enter a keyword (e.g., _jellyfish_), and within seconds, you get a ready-made presentation with five slides, created using OpenAI. With **Reveal.js**, you can immediately start presenting.
 
 In this mini-tutorial, I'll show you how Speakaoke is built and how you can create a similar project using **Fastify (Backend)** and **SolidJS (Frontend)**.
 

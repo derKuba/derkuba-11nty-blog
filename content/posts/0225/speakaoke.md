@@ -9,7 +9,7 @@ alternate_lang: "en"
 alternate_url: "/posts/en/0225/speakaoke"
 ---
 
-Kennst du das? Du musst spontan einen Vortrag halten, hast aber keine Ahnung über das Thema? Genau das ist die Idee hinter **Speakaoke** – einer Web-App, die auf Knopfdruck Präsentationen zu beliebigen Themen generiert! Du gibst einen Begriff ein (z. B. _Quallen_), und schon bekommst du eine fertige Präsentation mit fünf Folien, erstellt durch OpenAI. Mithilfe von **Reveal.js** kannst du dann direkt loslegen.
+Kennst du das? Du musst spontan einen Vortrag halten, hast aber keine Ahnung über das Thema? <!-- endOfPreview -->Genau das ist die Idee hinter **Speakaoke** – einer Web-App, die auf Knopfdruck Präsentationen zu beliebigen Themen generiert! Du gibst einen Begriff ein (z. B. _Quallen_), und schon bekommst du eine fertige Präsentation mit fünf Folien, erstellt durch OpenAI. Mithilfe von **Reveal.js** kannst du dann direkt loslegen.
 
 In diesem Mini-Tutorial zeige ich dir, wie Speakaoke technisch aufgebaut ist und wie du ein ähnliches Projekt mit **Fastify (Backend)** und **SolidJS (Frontend)** umsetzen kannst.
 
