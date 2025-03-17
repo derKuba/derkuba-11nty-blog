@@ -9,7 +9,7 @@ alternate_lang: "en"
 alternate_url: "/posts/en/0325/bundling-hell"
 ---
 
-Vor einiger Zeit haben wir bei [TopicPro](https://www.mountbarley.de/) unser altes **AngularJS-Frontend** gegen einen moderneren Stack ausgetauscht. Unsere Wahl fiel dabei auf **Solid.js**, ein Framework, das ich besonders schätze, weil es mir im Gegensatz zu Angular nicht vorschreibt, welches Module und Tools ich einsetzen darf. <!-- endOfPreview -->USolid.js gibt mir alle Freiheiten, genau die Werkzeuge einzusetzen, die ich selbst wähle.
+Vor einiger Zeit haben wir bei [TOPIC PRO](https://www.mountbarley.de/) unser altes **AngularJS-Frontend** gegen einen moderneren Stack ausgetauscht. Unsere Wahl fiel dabei auf **Solid.js**, ein Framework, das ich besonders schätze, weil es mir im Gegensatz zu Angular nicht vorschreibt, welches Module und Tools ich einsetzen darf. <!-- endOfPreview -->Solid.js gibt mir alle Freiheiten, genau die Werkzeuge einzusetzen, die ich selbst wähle.
 
 Vor etwa einem Jahr war ich total begeistert von **Parcel**. Alle Artikel schwärmten damals von der einfachen Bedienbarkeit und der schnellen Einrichtung ganz ohne aufwendige Konfiguration. Besonders charmant fand ich, dass bei Parcel quasi die `index.html` die komplette Steuerung übernimmt. Ein einfaches Verlinken meines Script-Moduls und meiner SCSS-Dateien genügte, und alles lief direkt. Es klang perfekt für unsere Zwecke.
 
@@ -35,7 +35,7 @@ Ja, Webpack ist beim initialen Start am langsamsten. Doch ich entscheide mich tr
 -   **Vite** empfehle ich, wenn Geschwindigkeit wichtig ist und man trotzdem genügend Kontrolle behalten möchte.
 -   **Webpack** ist mein persönlicher Favorit für komplexe Projekte, bei denen maximale Kontrolle und Transparenz wichtiger sind als die reine Startgeschwindigkeit.
 
-Manchmal erkennt man eben erst nach einigen Umwegen, wo das eigentliche Problem liegt – und was man wirklich braucht. Für topicpro.de passt Webpack deshalb perfekt.
+Manchmal erkennt man eben erst nach einigen Umwegen, wo das eigentliche Problem liegt – und was man wirklich braucht. Für [TOPIC PRO](https://www.mountbarley.de/) passt Webpack deshalb perfekt.
 
 Für Feedback bin ich immer dankbar.
 Gerne an jacob@derkuba.de

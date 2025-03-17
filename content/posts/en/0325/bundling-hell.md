@@ -9,7 +9,7 @@ alternate_lang: "de"
 alternate_url: "/posts/0325/bundling-hell"
 ---
 
-Some time ago, we replaced our old AngularJS frontend at [TopicPro](https://www.mountbarley.de/) with a more modern tech stack. We decided on Solid.js, a framework I particularly appreciate because, unlike Angular, it doesn't dictate which tools I have to use. Solid.js gives me the freedom to pick exactly the tools I need.
+Some time ago, we replaced our old AngularJS frontend at [TOPIC PRO](https://www.mountbarley.de/) with a more modern tech stack. We decided on Solid.js, a framework I particularly appreciate because, unlike Angular, it doesn't dictate which tools I have to use. Solid.js gives me the freedom to pick exactly the tools I need.
 
 About a year ago, I was very enthusiastic about Parcel. Every article praised its simplicity and quick setup without extensive configuration. I found it especially charming that Parcel essentially lets the index.html handle everything. Simply linking my script module and SCSS files was enough to get everything running right away. Initially, this seemed like the perfect fit for our project.
 
@@ -39,7 +39,7 @@ Webpack is my personal favorite for complex projects where maximum control and s
 -   **Vite** recommended if speed is important, and you still want decent control..
 -   **Webpack** is my personal favorite for complex projects where maximum control and stability outweigh startup speed.
 
-Sometimes, only after a few detours do we realize what really matters—and for TopicPro, Webpack fits perfectly.
+Sometimes, only after a few detours do we realize what really matters—and for [TOPIC PRO](https://www.mountbarley.de/), Webpack fits perfectly.
 
 I'm always grateful for feedback.
 
