@@ -25,5 +25,3 @@ Dieses Prinzip konnte ich in die folgenden Unternehmen einbringen und dabei helf
 Konnte ich dein Interesse wecken? Möchtest du dich mit mir vernetzen? schreib mir doch einfach bei LinkedIn oder per E-Mail an jacob@derkuba.de.
 
 <p><img src={{ "/img/profile/kuba.jpg" | url }} alt="I have a width" style="width:45%"></p>
-
-/about/en_about/index.html
