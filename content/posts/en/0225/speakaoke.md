@@ -2,7 +2,7 @@
 title: "Speakaoke – Spontaneous Presentations with Fastify, SolidJS, and AI"
 description: Spontane Vorträge üben
 date: 2025-02-23
-tags: ["KI", "fullstack"]
+tags: ["ki", "fullstack"]
 layout: layouts/post.njk
 lang: "en"
 alternate_lang: "de"

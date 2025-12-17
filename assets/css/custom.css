@@ -224,8 +224,76 @@ h6 {
     color: var(--text-primary-color) !important;
 }
 
+/* Tag Categories Styling */
+.categorized-tags-container {
+    width: 100%;
+}
+
+.tag-category {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.tag-category:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.tag-category-title {
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--text-primary-color);
+    display: flex;
+    align-items: center;
+}
+
+.category-emoji {
+    font-size: 1.2rem;
+    margin-right: 8px;
+}
+
+.tag-category-description {
+    font-size: 0.75rem;
+    color: #7a7a7a;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.tag-category-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.tag-category-items a {
+    display: inline-block;
+}
+
+/* Dark mode support for categories */
+.dark-mode .tag-category {
+    border-bottom-color: #404040;
+}
+
+.dark-mode .tag-category-description {
+    color: #9a9a9a;
+}
+
+.dark-mode .tag-category-title {
+    color: #e0e0e0;
+}
+
 @media screen and (max-width: 768px) {
     .xl-padding-right-50 {
         margin-right: 0;
+    }
+
+    .tag-category-title {
+        font-size: 0.85rem;
+    }
+
+    .tag-category-description {
+        font-size: 0.7rem;
     }
 }

@@ -5,15 +5,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <title>{{ title or metadata.title }}</title>
         <meta name="description" content="{{ description or metadata.description }}">
-        <meta property="og:title" content="Speakaoke – Spontane Präsentationen mit KI"/>
-        <meta property="og:image" content="/android-chrome-384x384.png"/>
-        <meta property="og:url" content="https://derkuba.de/posts/0225/speakaoke/"/>
+        <meta property="og:title" content="{{ title or metadata.title }}"/>
+        <meta property="og:description" content="{{ description or metadata.description }}"/>
+        <meta property="og:image" content="{{ '/android-chrome-384x384.png' | url | absoluteUrl(metadata.url) }}"/>
+        <meta property="og:url" content="{{ page.url | url | absoluteUrl(metadata.url) }}"/>
         <meta property="og:type" content="website"/>
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
         <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
         <link rel="alternate" href="{{ metadata.jsonfeed.path | url }}" type="application/json" title="{{ metadata.title }}">
+
+        <!-- Critical CSS for above-the-fold content -->
+        <style>
+        :root{--primary-color:#00d1b2;--background-color:#fff;--text-primary-color:#363636;--text-secondary-color:#fff}.dark-mode{--primary-color:#ffdd57;--background-color:#232323;--text-primary-color:#e0e0e0;--text-secondary-color:#363636}body{background-color:var(--background-color);color:var(--text-primary-color)!important;margin:0;font-family:BlinkMacSystemFont,-apple-system,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue","Helvetica","Arial",sans-serif}.navbar{background-color:var(--background-color);margin-bottom:50px}.title{color:var(--text-primary-color)}.title a{color:var(--text-primary-color)}
+        </style>
+
         <link rel="stylesheet" href="{{ '/assets/css/prism.css' | url }}">
         <link rel="stylesheet" href="{{ '/assets/css/bulma.css' | url }}">
         <link rel="stylesheet" href="{{ '/assets/css/custom.css' | url }}">

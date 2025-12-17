@@ -1,0 +1,64 @@
+{# Categorized Tags Component #}
+{# Groups all tags by category from tagCategories.json #}
+
+{% for category in tagCategories.categories %}
+  <div class="tag-category">
+    <h3 class="tag-category-title">
+      <span class="category-emoji">{{ category.emoji }}</span>
+      {{ category.name }}
+    </h3>
+    <div class="tag-category-description">
+      {{ category.description }}
+    </div>
+    <div class="tag-category-items">
+      {% for tag in collections.tagList | sort | filterTagList %}
+        {% if tag in category.tags %}
+          {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+          <a href="{{ tagUrl | url }}">
+            <span class="tag {% badge loop.index-1 %}{{ index }}{% endbadge %}">
+              {{ tag | title }}
+            </span>
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+{% endfor %}
+
+{# Uncategorized tags (if any) #}
+{% set categorizedTags = [] %}
+{% for category in tagCategories.categories %}
+  {% set categorizedTags = (categorizedTags.push(category.tags), categorizedTags) %}
+{% endfor %}
+
+{% set uncategorizedTags = [] %}
+{% for tag in collections.tagList | sort | filterTagList %}
+  {% set isInCategory = false %}
+  {% for category in tagCategories.categories %}
+    {% if tag in category.tags %}
+      {% set isInCategory = true %}
+    {% endif %}
+  {% endfor %}
+  {% if not isInCategory %}
+    {% set uncategorizedTags = (uncategorizedTags.push(tag), uncategorizedTags) %}
+  {% endif %}
+{% endfor %}
+
+{% if uncategorizedTags.length > 0 %}
+  <div class="tag-category">
+    <h3 class="tag-category-title">
+      <span class="category-emoji">🏷️</span>
+      Weitere Tags
+    </h3>
+    <div class="tag-category-items">
+      {% for tag in uncategorizedTags %}
+        {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+        <a href="{{ tagUrl | url }}">
+          <span class="tag {% badge loop.index-1 %}{{ index }}{% endbadge %}">
+            {{ tag | title }}
+          </span>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}

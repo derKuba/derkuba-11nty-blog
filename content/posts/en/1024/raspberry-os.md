@@ -2,7 +2,7 @@
 title: "Weekly Fuckup: Raspberry Pi Zero 2 W – A Small Wiring Mess with a Big Lesson"
 description: Wie stellt man Storybook ein?
 date: 2024-10-12
-tags: ["raspberry pi", "fuckup"]
+tags: ["raspberrypi", "fuckup"]
 layout: layouts/post.njk
 lang: "en"
 alternate_lang: "de"

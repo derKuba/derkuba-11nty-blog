@@ -1,0 +1,98 @@
+{
+  "categories": [
+    {
+      "name": "Technologien & Frameworks",
+      "emoji": "🔧",
+      "description": "Programmiersprachen, Frameworks und Technologie-Stacks",
+      "tags": [
+        "stenciljs",
+        "solidjs",
+        "solid",
+        "flutter",
+        "typescript",
+        "nodejs",
+        "node",
+        "vite",
+        "11ty",
+        "11nty"
+      ]
+    },
+    {
+      "name": "Testing & Qualität",
+      "emoji": "✅",
+      "description": "Testing, Test-Frameworks und Qualitätssicherung",
+      "tags": [
+        "testing",
+        "test",
+        "jest",
+        "vitest",
+        "hurl"
+      ]
+    },
+    {
+      "name": "Tools & Libraries",
+      "emoji": "🛠️",
+      "description": "Entwicklungstools, Build-Tools und Bibliotheken",
+      "tags": [
+        "storybook",
+        "github",
+        "bundler",
+        "bulma",
+        "prism",
+        "sqlite"
+      ]
+    },
+    {
+      "name": "Konzepte & Methoden",
+      "emoji": "📚",
+      "description": "Entwicklungskonzepte, Patterns und agile Methoden",
+      "tags": [
+        "agile",
+        "scrum",
+        "refactoring",
+        "hooks",
+        "fullstack",
+        "web",
+        "html"
+      ]
+    },
+    {
+      "name": "Karriere & Recruiting",
+      "emoji": "💼",
+      "description": "Job-Interviews, Recruiting und Zertifizierungen",
+      "tags": [
+        "recruiting",
+        "job-interview",
+        "certification",
+        "zertifizierung"
+      ]
+    },
+    {
+      "name": "Content-Typen",
+      "emoji": "📝",
+      "description": "Blog-Serien und Content-Kategorien",
+      "tags": [
+        "blog",
+        "tutorial",
+        "fuckup",
+        "podcast"
+      ]
+    },
+    {
+      "name": "Spezielle Themen",
+      "emoji": "🎯",
+      "description": "Spezifische Projekte und Technologien",
+      "tags": [
+        "ki",
+        "chatbot",
+        "ocr",
+        "raspberrypi",
+        "safari",
+        "ssl",
+        "halloweb",
+        "enterjs",
+        "excerpt"
+      ]
+    }
+  ]
+}

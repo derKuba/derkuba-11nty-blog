@@ -2,6 +2,8 @@ import pluginRss from "@11ty/eleventy-plugin-rss";
 import { EleventyHtmlBasePlugin } from "@11ty/eleventy";
 import pluginNavigation from "@11ty/eleventy-navigation";
 import pluginSyntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
+import CleanCSS from "clean-css";
+import { minify as htmlMinify } from "html-minifier-terser";
 
 import { DateTime } from "luxon";
 
@@ -25,6 +27,7 @@ export default async function (eleventyConfig) {
 
     eleventyConfig.addPassthroughCopy("assets/css/*.css");
     eleventyConfig.addPassthroughCopy("assets/images/*.png");
+    eleventyConfig.addPassthroughCopy("assets/images/*.svg");
 
     eleventyConfig.addPassthroughCopy({
         "node_modules/bulma/css/bulma.css": "assets/css/bulma.css",
@@ -56,6 +59,19 @@ export default async function (eleventyConfig) {
 
     eleventyConfig.addShortcode("excerpt", (post) => extractExcerpt(post));
 
+    // WebP image shortcode with fallback
+    eleventyConfig.addShortcode("image", function (src, alt, className = "") {
+        const path = require("path");
+        const ext = path.extname(src);
+        const basename = src.replace(ext, "");
+        const webpSrc = `${basename}.webp`;
+
+        return `<picture${className ? ` class="${className}"` : ""}>
+  <source srcset="${webpSrc}" type="image/webp">
+  <img src="${src}" alt="${alt}" loading="lazy">
+</picture>`;
+    });
+
     eleventyConfig.addFilter("htmlDateString", (dateObj) => {
         return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat(
             "yyyy-LL-dd",
@@ -69,10 +85,16 @@ export default async function (eleventyConfig) {
     });
 
     eleventyConfig.addFilter("filterTagList", (tags) => {
-        // should match the list in tags.njk
-        return (tags || []).filter(
-            (tag) => ["all", "nav", "post", "posts"].indexOf(tag) === -1,
-        );
+        // Filter out meta tags and internal tags
+        const hiddenTags = [
+            "all",
+            "nav",
+            "post",
+            "posts",
+            "englishposts",
+            "allpostsexceptenglish",
+        ];
+        return (tags || []).filter((tag) => hiddenTags.indexOf(tag) === -1);
     });
 
     eleventyConfig.addFilter("filterNavigation", function (navigation) {
@@ -126,6 +148,29 @@ export default async function (eleventyConfig) {
 
     eleventyConfig.addCollection("englishPosts", function (collectionApi) {
         return collectionApi.getFilteredByGlob("content/posts/en/**/*.md");
+    });
+
+    // CSS Minification
+    eleventyConfig.addFilter("cssmin", function (code) {
+        return new CleanCSS({}).minify(code).styles;
+    });
+
+    // HTML Minification (only for production)
+    eleventyConfig.addTransform("htmlmin", function (content, outputPath) {
+        if (
+            process.env.ELEVENTY_ENV === "production" &&
+            outputPath &&
+            outputPath.endsWith(".html")
+        ) {
+            return htmlMinify(content, {
+                useShortDoctype: true,
+                removeComments: true,
+                collapseWhitespace: true,
+                minifyCSS: true,
+                minifyJS: true,
+            });
+        }
+        return content;
     });
 
     return {

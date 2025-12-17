@@ -2,7 +2,7 @@
 title: How to import SQlite Database File in Flutter (Android)
 description: SQlite Database aus der Applikation importieren unter Android
 date: 2021-05-13
-tags: ["flutter", "sqllite"]
+tags: ["flutter", "sqlite"]
 layout: layouts/post.njk
 ---
 

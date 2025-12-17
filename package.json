@@ -6,8 +6,11 @@
     "type": "module",
     "scripts": {
         "build": "npx @11ty/eleventy",
-        "export": "npm run build && node ./helper/export.js",
-        "dev": "npx @11ty/eleventy --serve"
+        "build:prod": "ELEVENTY_ENV=production npx @11ty/eleventy",
+        "export": "npm run build:prod && node ./helper/export.js",
+        "dev": "npx @11ty/eleventy --serve",
+        "optimize:images": "node ./scripts/optimize-images.js",
+        "optimize:images:dry-run": "node ./scripts/optimize-images.js --dry-run"
     },
     "repository": {
         "type": "git",
@@ -41,15 +44,19 @@
     },
     "homepage": "https://github.com/derKuba/derkuba-11nty-blog#readme",
     "dependencies": {
-        "@11ty/eleventy": "3.0.0",
-        "@11ty/eleventy-navigation": "^0.3.5",
-        "@11ty/eleventy-plugin-rss": "^2.0.2",
-        "prettier": "^3.3.3"
+        "@11ty/eleventy": "^3.1.2",
+        "@11ty/eleventy-navigation": "^1.0.5",
+        "@11ty/eleventy-plugin-rss": "^2.0.4",
+        "luxon": "^3.7.2",
+        "prettier": "^3.7.4"
     },
     "devDependencies": {
-        "@11ty/eleventy-img": "^5.0.0",
-        "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
-        "bulma": "^1.0.2",
-        "fs-extra": "^11.2.0"
+        "@11ty/eleventy-img": "^6.0.4",
+        "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
+        "bulma": "^1.0.4",
+        "clean-css": "^5.3.3",
+        "fs-extra": "^11.3.2",
+        "glob": "^11.0.0",
+        "html-minifier-terser": "^7.2.0"
     }
 }

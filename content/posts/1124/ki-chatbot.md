@@ -2,7 +2,7 @@
 title: "Ich mach was mit KI ;-) - der Chatbot"
 description: Kleines Hackingprojekt
 date: 2024-11-27
-tags: ["KI", "chatbot", "node"]
+tags: ["ki", "chatbot", "node"]
 layout: layouts/post.njk
 ---
 

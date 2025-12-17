@@ -18,13 +18,8 @@ eleventyNavigation:
             Kategorien
           </p>
           <div class="panel-block ">
-            <div class="content categorie-item">
-              {% for tag in collections.tagList | sort | filterTagList %}
-                {% set tagUrl %}/tags/{{ tag }}/{% endset %}
-                <a href="{{ tagUrl | url }}">
-                  <span class="tag {% badge loop.index-1 %}{{ index }}{% endbadge %}">{{ tag | title }}</span>
-                </a>
-              {% endfor %}
+            <div class="content categorie-item categorized-tags-container">
+              {% include "layouts/components/categorized-tags.njk" %}
             </div>
           </div>
         </div>

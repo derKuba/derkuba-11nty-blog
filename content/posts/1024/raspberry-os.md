@@ -2,7 +2,7 @@
 title: "Fuckup der Woche: Raspberry Pi Zero 2 W - Wenn das Setup nervt und der Wlan-Zugang klemmt"
 description: Wie stellt man Storybook ein?
 date: 2024-10-12
-tags: ["raspberry pi", "fuckup"]
+tags: ["raspberrypi", "fuckup"]
 layout: layouts/post.njk
 lang: "de"
 alternate_lang: "en"
