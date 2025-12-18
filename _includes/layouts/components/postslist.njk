@@ -10,15 +10,12 @@
           {% endif %}
         </a>
       </h2>
-      <h3 class="subtitle is-7">
-        <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
-      </h3>
-      <div class="control ">
-        <div class="tags has-addons is-justify-content-flex-end">
-          <span class="tag is-dark">
-            {{ post.templateContent | striptags | wordcount | readingTime }}</span>
-          <span class="tag is-success">{{ post.templateContent | striptags | wordcount }} Wörter</span>
-        </div>
+      <div class="post-meta">
+        <time class="post-date" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+        <span class="post-meta-separator">•</span>
+        <span class="post-reading-time">{{ post.templateContent | striptags | wordcount | readingTime }}</span>
+        <span class="post-meta-separator">•</span>
+        <span class="post-word-count">{{ post.templateContent | striptags | wordcount }} Wörter</span>
       </div>
       <div class="tag-list">
         {% for tag in post.data.tags | filterTagList %}
@@ -28,9 +25,10 @@
           </span>
         {% endfor %}
       </div>
-      {% excerpt post %}
-      <a href="{{ post.url }}">weiterlesen</a>
-      <hr/>
+      <div class="post-excerpt">
+        {% excerpt post %}
+      </div>
+      <a href="{{ post.url }}" class="read-more-link">Weiterlesen →</a>
     </li>
   {% endfor %}
 </ul>
