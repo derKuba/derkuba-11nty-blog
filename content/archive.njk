@@ -1,5 +1,5 @@
 ---
-layout: layouts/components/home.njk
+layout: layouts/base.njk
 permalink: /posts/
 eleventyNavigation:
   key: Archive
@@ -7,5 +7,179 @@ eleventyNavigation:
   title: Archiv
 ---
 
-{% set postslist = collections.allPostsExceptEnglish %}
-{% include "layouts/components/postslist.njk" %}
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-10">
+        <h1 class="title is-2">Archiv</h1>
+
+        {# Search and Filter Section #}
+        <div class="archive-controls">
+          <div class="archive-search">
+            <input
+              type="text"
+              id="archive-search-input"
+              class="input"
+              placeholder="Suche nach Titel oder Tags..."
+            >
+          </div>
+
+          <div class="archive-filters">
+            <div class="filter-group">
+              <label for="year-filter">Jahr:</label>
+              <div class="select">
+                <select id="year-filter">
+                  <option value="all">Alle Jahre</option>
+                  {%- set years = [] %}
+                  {%- for post in collections.allPostsExceptEnglish %}
+                    {%- set year = post.date | getYear %}
+                    {%- if year not in years %}
+                      {%- set years = (years.push(year), years) %}
+                    {%- endif %}
+                  {%- endfor %}
+                  {%- for year in years | sort | reverse %}
+                  <option value="{{ year }}">{{ year }}</option>
+                  {%- endfor %}
+                </select>
+              </div>
+            </div>
+
+            <div class="filter-group">
+              <label for="category-filter">Kategorie:</label>
+              <div class="select">
+                <select id="category-filter">
+                  <option value="all">Alle Kategorien</option>
+                  {%- for category in tagCategories.categories %}
+                  <option value="{{ category.name }}">{{ category.name }}</option>
+                  {%- endfor %}
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {# Posts grouped by year #}
+        <div id="archive-posts">
+          {%- set currentYear = "" %}
+          {%- for post in collections.allPostsExceptEnglish | reverse %}
+            {%- set postYear = post.date | getYear %}
+
+            {# Start new year section if year changed #}
+            {%- if postYear != currentYear %}
+              {%- if currentYear != "" %}
+                </div> {# Close previous compact-post-list #}
+              </div> {# Close previous year-section #}
+              {%- endif %}
+
+              <div class="year-section" data-year="{{ postYear }}">
+                <h2 class="year-heading">{{ postYear }}</h2>
+                <div class="compact-post-list">
+              {%- set currentYear = postYear %}
+            {%- endif %}
+
+            {# Post item #}
+            <article class="compact-post-item"
+              data-title="{{ post.data.title | lower }}"
+              data-tags="{{ post.data.tags | filterTagList | join(',') | lower }}"
+              data-year="{{ postYear }}"
+              data-categories="{% for category in tagCategories.categories %}{% for tag in post.data.tags | filterTagList %}{% if tag in category.tags %}{{ category.name }},{% endif %}{% endfor %}{% endfor %}">
+
+              <div class="compact-post-header">
+                <h3 class="compact-post-title">
+                  <a href="{{ post.url | url }}">{{ post.data.title }}</a>
+                </h3>
+                <time class="compact-post-date" datetime="{{ post.date | htmlDateString }}">
+                  {{ post.date | readableDate }}
+                </time>
+              </div>
+
+              <div class="compact-post-tags">
+                {%- for tag in post.data.tags | filterTagList %}
+                  {%- set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
+                  <a href="{{ tagUrl | url }}">
+                    <span class="tag {% badge loop.index-1 %}{{ index }}{% endbadge %}">{{ tag }}</span>
+                  </a>
+                {%- endfor %}
+              </div>
+            </article>
+
+            {# Close last year section #}
+            {%- if loop.last %}
+              </div> {# Close compact-post-list #}
+            </div> {# Close year-section #}
+            {%- endif %}
+          {%- endfor %}
+        </div>
+
+        <div id="no-results" class="no-results" style="display: none;">
+          <p>Keine Posts gefunden für deine Suche/Filter.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+// Archive Search and Filter
+(function() {
+  const searchInput = document.getElementById('archive-search-input');
+  const yearFilter = document.getElementById('year-filter');
+  const categoryFilter = document.getElementById('category-filter');
+  const posts = document.querySelectorAll('.compact-post-item');
+  const yearSections = document.querySelectorAll('.year-section');
+  const noResults = document.getElementById('no-results');
+
+  function filterPosts() {
+    const searchTerm = searchInput.value.toLowerCase();
+    const selectedYear = yearFilter.value;
+    const selectedCategory = categoryFilter.value;
+
+    let visibleCount = 0;
+    const visibleYears = new Set();
+
+    posts.forEach(post => {
+      const title = post.dataset.title;
+      const tags = post.dataset.tags;
+      const year = post.dataset.year;
+      const categories = post.dataset.categories;
+
+      const matchesSearch = !searchTerm ||
+        title.includes(searchTerm) ||
+        tags.includes(searchTerm);
+
+      const matchesYear = selectedYear === 'all' || year === selectedYear;
+      const matchesCategory = selectedCategory === 'all' ||
+        categories.includes(selectedCategory);
+
+      if (matchesSearch && matchesYear && matchesCategory) {
+        post.style.display = '';
+        visibleCount++;
+        visibleYears.add(year);
+      } else {
+        post.style.display = 'none';
+      }
+    });
+
+    // Show/hide year sections
+    yearSections.forEach(section => {
+      const year = section.dataset.year;
+      if (visibleYears.has(year)) {
+        section.style.display = '';
+      } else {
+        section.style.display = 'none';
+      }
+    });
+
+    // Show/hide no results message
+    if (visibleCount === 0) {
+      noResults.style.display = 'block';
+    } else {
+      noResults.style.display = 'none';
+    }
+  }
+
+  searchInput.addEventListener('input', filterPosts);
+  yearFilter.addEventListener('change', filterPosts);
+  categoryFilter.addEventListener('change', filterPosts);
+})();
+</script>

@@ -1,17 +1,33 @@
 /* Hauptfarben für das Hell-Schema */
 :root {
-    --primary-color: #00d1b2;
+    --primary-color: #7D8A4F;
     --background-color: #ffffff;
     --text-primary-color: #363636;
     --text-secondary-color: #ffffff;
+
+    /* Retro-Tech Farbpalette: Olivgrün, Senfgelb, Petrolgrün */
+    --tag-olive: #7D8A4F;
+    --tag-olive-light: #EEF0E8;
+    --tag-amber: #E9B44C;
+    --tag-amber-light: #FDF4E3;
+    --tag-teal: #2D6A6A;
+    --tag-teal-light: #E5F0F0;
 }
 
 /* Dark Mode Farben */
 .dark-mode {
-    --primary-color: #ffdd57;
+    --primary-color: #99AD66;
     --background-color: #232323;
     --text-primary-color: #e0e0e0;
     --text-secondary-color: #363636;
+
+    /* Leuchtendere Retro-Farben für Dark Mode */
+    --tag-olive: #99AD66;
+    --tag-olive-light: #2A2F20;
+    --tag-amber: #F4C563;
+    --tag-amber-light: #3D3420;
+    --tag-teal: #4A9B9B;
+    --tag-teal-light: #1F3838;
 }
 
 body {
@@ -33,11 +49,111 @@ body {
 
 .post-list__item {
     list-style: none;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
+    padding: 30px;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    background-color: var(--background-color);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.post-list__item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--tag-olive), var(--tag-amber), var(--tag-teal));
+    border-radius: 8px 8px 0 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.post-list__item:hover::before {
+    opacity: 1;
+}
+
+.post-list__item:hover {
+    border-color: var(--tag-olive);
+    box-shadow: 0 4px 16px rgba(125, 138, 79, 0.25);
+    transform: translateY(-2px);
 }
 
 .title {
     color: var(--text-primary-color);
+}
+
+.post-list__item .title {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+/* Post meta information - date, reading time, word count */
+.post-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.875rem;
+    color: #7a7a7a;
+    margin-bottom: 1rem;
+}
+
+.post-date {
+    color: #7a7a7a;
+    font-weight: 500;
+}
+
+.post-meta-separator {
+    color: #d0d0d0;
+    user-select: none;
+}
+
+.post-reading-time,
+.post-word-count {
+    color: #999;
+    font-size: 0.85rem;
+}
+
+/* Post excerpt styling */
+.post-excerpt {
+    margin-bottom: 1.25rem;
+    line-height: 1.6;
+    color: var(--text-primary-color);
+}
+
+/* Read more link */
+.read-more-link {
+    display: inline-block;
+    color: var(--tag-teal);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    position: relative;
+}
+
+.read-more-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--tag-amber), var(--tag-olive));
+    transition: width 0.3s ease;
+}
+
+.read-more-link:hover {
+    color: var(--tag-olive);
+    text-decoration: none;
+    transform: translateX(4px);
+}
+
+.read-more-link:hover::after {
+    width: 100%;
 }
 
 .title a {
@@ -100,10 +216,6 @@ body {
     text-align: justify;
 }
 
-.post-list__item {
-    text-align: justify;
-}
-
 a[href].direct-link,
 a[href].direct-link:visited {
     color: transparent;
@@ -127,6 +239,74 @@ a[href].direct-link:visited {
 
 .tag-list span {
     margin-right: 5px;
+}
+
+/* Retro-Tech Farbpalette für Tags - Olivgrün, Senfgelb, Petrolgrün rotierend */
+.tag-list .tag {
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+/* Olivgrün */
+.tag-list .tag:nth-child(3n+1) {
+    background-color: var(--tag-olive-light) !important;
+    color: var(--tag-olive) !important;
+}
+
+.tag-list .tag:nth-child(3n+1):hover {
+    background-color: var(--tag-olive) !important;
+    color: white !important;
+    transform: translateY(-1px);
+}
+
+.tag-list .tag:nth-child(3n+1) a {
+    color: var(--tag-olive) !important;
+}
+
+.tag-list .tag:nth-child(3n+1):hover a {
+    color: white !important;
+}
+
+/* Senfgelb */
+.tag-list .tag:nth-child(3n+2) {
+    background-color: var(--tag-amber-light) !important;
+    color: var(--tag-amber) !important;
+}
+
+.tag-list .tag:nth-child(3n+2):hover {
+    background-color: var(--tag-amber) !important;
+    color: white !important;
+    transform: translateY(-1px);
+}
+
+.tag-list .tag:nth-child(3n+2) a {
+    color: var(--tag-amber) !important;
+}
+
+.tag-list .tag:nth-child(3n+2):hover a {
+    color: white !important;
+}
+
+/* Petrolgrün */
+.tag-list .tag:nth-child(3n+3) {
+    background-color: var(--tag-teal-light) !important;
+    color: var(--tag-teal) !important;
+}
+
+.tag-list .tag:nth-child(3n+3):hover {
+    background-color: var(--tag-teal) !important;
+    color: white !important;
+    transform: translateY(-1px);
+}
+
+.tag-list .tag:nth-child(3n+3) a {
+    color: var(--tag-teal) !important;
+}
+
+.tag-list .tag:nth-child(3n+3):hover a {
+    color: white !important;
 }
 
 .categorie-item a .tag {
@@ -211,6 +391,16 @@ th {
     color: #c0c0c0;
 }
 
+.dark-mode .post-list__item {
+    border-color: #404040;
+    background-color: var(--background-color);
+}
+
+.dark-mode .post-list__item:hover {
+    border-color: var(--tag-amber);
+    box-shadow: 0 4px 16px rgba(233, 180, 76, 0.25);
+}
+
 strong {
     color: var(--text-primary-color);
 }
@@ -233,6 +423,14 @@ h6 {
     margin-bottom: 25px;
     padding-bottom: 15px;
     border-bottom: 1px solid #e0e0e0;
+}
+
+/* Panel headings mit Retro-Gradient */
+.panel-heading {
+    background: linear-gradient(135deg, var(--tag-teal), var(--tag-olive)) !important;
+    color: white !important;
+    border: none !important;
+    font-weight: 600;
 }
 
 .tag-category:last-child {
@@ -271,6 +469,47 @@ h6 {
     display: inline-block;
 }
 
+/* Sidebar tags - mit Retro-Farben */
+.tag-category-items .tag {
+    font-size: 0.75rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+/* Olivgrün */
+.tag-category-items .tag:nth-child(3n+1) {
+    background-color: var(--tag-olive-light) !important;
+    color: var(--tag-olive) !important;
+}
+
+.tag-category-items .tag:nth-child(3n+1):hover {
+    background-color: var(--tag-olive) !important;
+    color: white !important;
+}
+
+/* Senfgelb */
+.tag-category-items .tag:nth-child(3n+2) {
+    background-color: var(--tag-amber-light) !important;
+    color: var(--tag-amber) !important;
+}
+
+.tag-category-items .tag:nth-child(3n+2):hover {
+    background-color: var(--tag-amber) !important;
+    color: white !important;
+}
+
+/* Petrolgrün */
+.tag-category-items .tag:nth-child(3n+3) {
+    background-color: var(--tag-teal-light) !important;
+    color: var(--tag-teal) !important;
+}
+
+.tag-category-items .tag:nth-child(3n+3):hover {
+    background-color: var(--tag-teal) !important;
+    color: white !important;
+}
+
 /* Dark mode support for categories */
 .dark-mode .tag-category {
     border-bottom-color: #404040;
@@ -284,6 +523,22 @@ h6 {
     color: #e0e0e0;
 }
 
+
+/* Dark mode for post meta */
+.dark-mode .post-meta,
+.dark-mode .post-date {
+    color: #9a9a9a;
+}
+
+.dark-mode .post-reading-time,
+.dark-mode .post-word-count {
+    color: #808080;
+}
+
+.dark-mode .post-meta-separator {
+    color: #555;
+}
+
 @media screen and (max-width: 768px) {
     .xl-padding-right-50 {
         margin-right: 0;
@@ -295,5 +550,397 @@ h6 {
 
     .tag-category-description {
         font-size: 0.7rem;
+    }
+
+    /* Mobile optimizations for post cards */
+    .post-list__item {
+        padding: 20px;
+        margin-bottom: 30px;
+    }
+
+    .post-list__item .title {
+        font-size: 1.5rem;
+    }
+
+    .post-meta {
+        flex-wrap: wrap;
+        font-size: 0.8rem;
+    }
+
+    .tag-list .tag {
+        font-size: 0.75rem;
+    }
+}
+
+/* ===========================
+   Post Detail Styles
+   =========================== */
+
+/* Article container */
+.post-detail-article {
+    background-color: var(--background-color);
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    padding: 50px;
+    margin-bottom: 30px;
+}
+
+/* Post title */
+.post-detail-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: var(--text-primary-color);
+}
+
+/* Meta information */
+.post-detail-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    color: #7a7a7a;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+/* Tags below meta */
+.post-detail-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 2rem;
+}
+
+/* Post navigation */
+.post-navigation {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 2px solid #f0f0f0;
+}
+
+.post-nav-card {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    background-color: var(--background-color);
+}
+
+.post-nav-card:hover {
+    border-color: var(--tag-olive);
+    box-shadow: 0 4px 12px rgba(125, 138, 79, 0.2);
+    transform: translateY(-2px);
+}
+
+.post-nav-prev {
+    text-align: left;
+}
+
+.post-nav-next {
+    text-align: right;
+}
+
+.post-nav-label {
+    font-size: 0.85rem;
+    color: #7a7a7a;
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.post-nav-title {
+    font-size: 1rem;
+    color: var(--text-primary-color);
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.post-nav-card:hover .post-nav-title {
+    color: var(--tag-olive);
+}
+
+/* Dark mode for post details */
+.dark-mode .post-detail-article {
+    border-color: #404040;
+}
+
+.dark-mode .post-detail-meta {
+    border-bottom-color: #404040;
+}
+
+.dark-mode .post-navigation {
+    border-top-color: #404040;
+}
+
+.dark-mode .post-nav-card {
+    border-color: #404040;
+}
+
+.dark-mode .post-nav-card:hover {
+    border-color: var(--tag-amber);
+    box-shadow: 0 4px 12px rgba(233, 180, 76, 0.25);
+}
+
+/* Mobile adjustments */
+@media screen and (max-width: 768px) {
+    .post-detail-article {
+        padding: 30px 20px;
+    }
+
+    .post-detail-title {
+        font-size: 2rem;
+    }
+
+    .post-detail-meta {
+        font-size: 0.85rem;
+        flex-wrap: wrap;
+    }
+
+    .post-navigation {
+        grid-template-columns: 1fr;
+    }
+
+    .post-nav-next {
+        text-align: left;
+    }
+}
+
+/* ===========================
+   Archive Page Styles
+   =========================== */
+
+/* Archive controls container */
+.archive-controls {
+    background-color: var(--background-color);
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    padding: 30px;
+    margin-bottom: 40px;
+}
+
+/* Search input */
+.archive-search {
+    margin-bottom: 20px;
+}
+
+.archive-search .input {
+    font-size: 1rem;
+    padding: 12px 16px;
+    border: 2px solid #e8e8e8;
+    transition: border-color 0.3s ease;
+}
+
+.archive-search .input:focus {
+    border-color: var(--tag-olive);
+    box-shadow: 0 0 0 3px rgba(125, 138, 79, 0.1);
+}
+
+/* Filter section */
+.archive-filters {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.filter-group label {
+    font-weight: 600;
+    color: var(--text-primary-color);
+    font-size: 0.95rem;
+}
+
+.filter-group .select select {
+    border: 2px solid #e8e8e8;
+    padding: 8px 32px 8px 12px;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    transition: border-color 0.3s ease;
+    min-width: 180px;
+}
+
+.filter-group .select select:focus {
+    border-color: var(--tag-olive);
+    outline: none;
+}
+
+/* Year sections */
+.year-section {
+    margin-bottom: 50px;
+}
+
+.year-heading {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-primary-color);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--tag-olive);
+    display: inline-block;
+}
+
+/* Compact post list */
+.compact-post-list {
+    display: grid;
+    gap: 20px;
+}
+
+/* Compact post item */
+.compact-post-item {
+    background-color: var(--background-color);
+    border: 1px solid #e8e8e8;
+    border-radius: 6px;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.compact-post-item:hover {
+    border-color: var(--tag-olive);
+    box-shadow: 0 2px 8px rgba(125, 138, 79, 0.15);
+    transform: translateY(-1px);
+}
+
+/* Compact post header */
+.compact-post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 20px;
+    margin-bottom: 12px;
+}
+
+.compact-post-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+    flex: 1;
+}
+
+.compact-post-title a {
+    color: var(--text-primary-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.compact-post-title a:hover {
+    color: var(--tag-olive);
+}
+
+.compact-post-date {
+    font-size: 0.9rem;
+    color: #7a7a7a;
+    white-space: nowrap;
+    font-weight: 500;
+}
+
+/* Compact post tags */
+.compact-post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.compact-post-tags .tag {
+    font-size: 0.8rem;
+}
+
+/* No results message */
+.no-results {
+    text-align: center;
+    padding: 60px 20px;
+    color: #7a7a7a;
+}
+
+.no-results p {
+    font-size: 1.1rem;
+}
+
+/* Dark mode for archive */
+.dark-mode .archive-controls {
+    border-color: #404040;
+}
+
+.dark-mode .archive-search .input {
+    background-color: #2a2a2a;
+    border-color: #404040;
+    color: #e0e0e0;
+}
+
+.dark-mode .archive-search .input:focus {
+    border-color: var(--tag-amber);
+    box-shadow: 0 0 0 3px rgba(233, 180, 76, 0.1);
+}
+
+.dark-mode .filter-group .select select {
+    background-color: #2a2a2a;
+    border-color: #404040;
+    color: #e0e0e0;
+}
+
+.dark-mode .filter-group .select select:focus {
+    border-color: var(--tag-amber);
+}
+
+.dark-mode .year-heading {
+    border-bottom-color: var(--tag-amber);
+}
+
+.dark-mode .compact-post-item {
+    border-color: #404040;
+}
+
+.dark-mode .compact-post-item:hover {
+    border-color: var(--tag-amber);
+    box-shadow: 0 2px 8px rgba(233, 180, 76, 0.2);
+}
+
+/* Mobile adjustments for archive */
+@media screen and (max-width: 768px) {
+    .archive-controls {
+        padding: 20px;
+    }
+
+    .archive-filters {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .filter-group {
+        width: 100%;
+    }
+
+    .filter-group .select {
+        flex: 1;
+    }
+
+    .filter-group .select select {
+        width: 100%;
+    }
+
+    .compact-post-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .compact-post-title {
+        font-size: 1.1rem;
+    }
+
+    .year-heading {
+        font-size: 1.5rem;
     }
 }

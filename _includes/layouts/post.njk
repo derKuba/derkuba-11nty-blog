@@ -5,15 +5,17 @@ layout: layouts/base.njk
 <section class="section">
   <div class="container">
     <div class="columns is-centered">
-      <div class="column is-8">
-        <h1 class="title is-3">{{ title }}</h1>
-        <div class="post-detail__tags">
-          <h3 class="subtitle is-6">
-            <time datetime="{{ page.date | htmlDateString }}">
-              {{ page.date | readableDate }}
-            </time>
-          </h3>
-          <div class="tags">
+      <div class="column is-10">
+        <article class="post-detail-article">
+          <h1 class="post-detail-title">{{ title }}</h1>
+          <div class="post-detail-meta">
+            <time class="post-date" datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
+            <span class="post-meta-separator">•</span>
+            <span class="post-reading-time">{{ content | striptags | wordcount | readingTime }}</span>
+            <span class="post-meta-separator">•</span>
+            <span class="post-word-count">{{ content | striptags | wordcount }} Wörter</span>
+          </div>
+          <div class="post-detail-tags">
             {%- for tag in tags | filterTagList -%}
               {%- set tagUrl %}/tags/{{ tag | slug }}/{% endset -%}
               <a href="{{ tagUrl | url }}" class="post-tag">
@@ -23,7 +25,6 @@ layout: layouts/base.njk
               </a>
             {%- endfor %}
           </div>
-        </div>
         <div class="content post_detail__content">
           <div class="language-hint">
             {% if lang == "de" %}
@@ -33,25 +34,28 @@ layout: layouts/base.njk
             {% endif %}
           </div>
           {{ content | safe }}
+          </div>
+
           {%- set nextPost = collections.posts | getNextCollectionItem(page) %}
           {%- set previousPost = collections.posts | getPreviousCollectionItem(page) %}
           {%- if nextPost or previousPost %}
-            <hr>
-              <ul class="post-navigation">
-                {%- if nextPost %}
-                  <li>Nächster Artikel:
-                    <a href="{{ nextPost.url | url }}">{{ nextPost.data.title }}</a>
-                  </li>
-                {% endif %}
-                {%- if previousPost %}
-                  <li>Vorheriger Artikel:
-                    <a href="{{ previousPost.url | url }}">{{ previousPost.data.title }}</a>
-                  </li>
-                {% endif %}
-              </ul>
-            {%- endif %}
-          </div>
-        </div>
+            <nav class="post-navigation">
+              {%- if previousPost %}
+                <a href="{{ previousPost.url | url }}" class="post-nav-card post-nav-prev">
+                  <span class="post-nav-label">← Vorheriger Artikel</span>
+                  <span class="post-nav-title">{{ previousPost.data.title }}</span>
+                </a>
+              {% endif %}
+              {%- if nextPost %}
+                <a href="{{ nextPost.url | url }}" class="post-nav-card post-nav-next">
+                  <span class="post-nav-label">Nächster Artikel →</span>
+                  <span class="post-nav-title">{{ nextPost.data.title }}</span>
+                </a>
+              {% endif %}
+            </nav>
+          {%- endif %}
+        </article>
+      </div>
       </div>
     </div>
   </section>
