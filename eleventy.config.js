@@ -84,6 +84,10 @@ export default async function (eleventyConfig) {
         );
     });
 
+    eleventyConfig.addFilter("getYear", (dateObj) => {
+        return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("yyyy");
+    });
+
     eleventyConfig.addFilter("filterTagList", (tags) => {
         // Filter out meta tags and internal tags
         const hiddenTags = [
